@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/img/subst_log1.png">
 <meta property="og:image" content="http://yoursite.com/img/subst_log2.png">
 <meta property="og:image" content="http://yoursite.com/img/subst_log3.png">
-<meta property="og:updated_time" content="2017-03-31T17:29:25.000Z">
+<meta property="og:updated_time" content="2017-04-01T03:48:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bash命令行处理步骤及源码解析">
 <meta name="twitter:description" content="之前在执行脚本时发现一个问题：
@@ -189,7 +189,7 @@
 
         
         <a href="/tags/bash命令行处理步骤及源码解析.html" class="archive-article-date">
-  	<time datetime="2017-03-31T17:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+  	<time datetime="2017-04-01T03:48:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
 </a>
         
       </header>
@@ -232,7 +232,7 @@
 <p><img src="/img/subst_log2.png" alt="这里写图片描述"></p>
 <p><img src="/img/subst_log3.png" alt="这里写图片描述"></p>
 <p>对于./c.sh $OPTS的执行过程中打印：<br>[DEBUG] word: ./c.sh<br>[DEBUG] word: $OPTS<br>[DEBUG]\$ begin substitute  //在这里执行\$OPTS的参数扩展<br>[DEBUG]\$ end substitute<br>之后直接跳出switch循环了。</p>
-<p>而对于./c.sh –conf javaOption=”-Da=b -Dc=d”的执行过程中打印：<br>[DEBUG] word: ./task/c.sh<br>[DEBUG] word: –conf<br>[DEBUG] word: javaOption=”-Da=b -Dc=d”<br>[DEBUG]double_quote processing //处理双引号<br>[DEBUG] word: -Da=b -Dc=d<br>Detaching after fork from child process 14855.<br>0:{–conf}<br>1:{javaOption=-Da=b -Dc=d}<br>&#8194;&#8194;&#8194;&#8194;在接下来的switch里边会处理到双引号，调用string_extract_double_quoted()函数将引号内字符串处理为一个整体。<br>&#8194;&#8194;&#8194;&#8194;写到这里也就差不多结束啦，bash源码的解读还有很多需要研究的地方，目前我还只是因为eval命令的原因研究了bash中关于双引号的处理，以此来作为一个引子，也给各位跟我一样的新手提供一个编译调试，解读源码的完整思路，如果大家有什么问题或者文中有什么错误，还请多多指正，多多交流~<br>reward: true</p>
+<p>而对于./c.sh –conf javaOption=”-Da=b -Dc=d”的执行过程中打印：<br>[DEBUG] word: ./task/c.sh<br>[DEBUG] word: –conf<br>[DEBUG] word: javaOption=”-Da=b -Dc=d”<br>[DEBUG]double_quote processing //处理双引号<br>[DEBUG] word: -Da=b -Dc=d<br>Detaching after fork from child process 14855.<br>0:{–conf}<br>1:{javaOption=-Da=b -Dc=d}<br>&#8194;&#8194;&#8194;&#8194;在接下来的switch里边会处理到双引号，调用string_extract_double_quoted()函数将引号内字符串处理为一个整体。<br>&#8194;&#8194;&#8194;&#8194;写到这里也就差不多结束啦，bash源码的解读还有很多需要研究的地方，目前我还只是因为eval命令的原因研究了bash中关于双引号的处理，以此来作为一个引子，也给各位跟我一样的新手提供一个编译调试，解读源码的完整思路，如果大家有什么问题或者文中有什么错误，还请多多指正，多多交流~</p>
 
       
 
