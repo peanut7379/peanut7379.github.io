@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/Mac%E4%BD%BF%E7%94%A8.html</loc>
+    
+    <lastmod>2017-05-24T08:55:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
-    <lastmod>2017-05-22T07:07:11.000Z</lastmod>
+    <lastmod>2017-05-24T08:55:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/dockerStudy.html</loc>
+    
+    <lastmod>2017-05-24T08:48:22.000Z</lastmod>
     
   </url>
   

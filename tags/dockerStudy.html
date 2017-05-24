@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>何以解忧 唯有杜康 | Peanut&#39;s Home</title>
+  <title>docker学习整理 | Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="丑奴儿·书博山道中壁西洲曲">
+  <meta name="description" content="1docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等
+1docker info ：查看系统(docker)层面信息，包括管理的images, containers数等
+查找镜像，可做模糊搜索1docker search &amp;lt;image&amp;gt;：在docker index中搜索image
+下载镜像1docker pull &amp;lt;image&amp;gt; ：从do">
 <meta property="og:type" content="website">
-<meta property="og:title" content="何以解忧 唯有杜康">
-<meta property="og:url" content="http://yoursite.com/think/index.html">
+<meta property="og:title" content="docker学习整理">
+<meta property="og:url" content="http://yoursite.com/tags/dockerStudy.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="丑奴儿·书博山道中壁西洲曲">
-<meta property="og:updated_time" content="2017-03-31T09:46:37.000Z">
+<meta property="og:description" content="1docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等
+1docker info ：查看系统(docker)层面信息，包括管理的images, containers数等
+查找镜像，可做模糊搜索1docker search &amp;lt;image&amp;gt;：在docker index中搜索image
+下载镜像1docker pull &amp;lt;image&amp;gt; ：从do">
+<meta property="og:updated_time" content="2017-05-24T08:48:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何以解忧 唯有杜康">
-<meta name="twitter:description" content="丑奴儿·书博山道中壁西洲曲">
+<meta name="twitter:title" content="docker学习整理">
+<meta name="twitter:description" content="1docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等
+1docker info ：查看系统(docker)层面信息，包括管理的images, containers数等
+查找镜像，可做模糊搜索1docker search &amp;lt;image&amp;gt;：在docker index中搜索image
+下载镜像1docker pull &amp;lt;image&amp;gt; ：从do">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -172,20 +181,34 @@
         
   
     <h1 class="article-title" itemprop="name">
-      何以解忧 唯有杜康
+      docker学习整理
     </h1>
   
 
         
-        <a href="/think/index.html" class="archive-article-date">
-  	<time datetime="2017-03-31T08:52:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+        <a href="/tags/dockerStudy.html" class="archive-article-date">
+  	<time datetime="2017-05-24T08:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="丑奴儿·书博山道中壁"><a href="#丑奴儿·书博山道中壁" class="headerlink" title="丑奴儿·书博山道中壁"></a><a href="/think/丑奴儿.html">丑奴儿·书博山道中壁</a></h2><h2 id="西洲曲"><a href="#西洲曲" class="headerlink" title="西洲曲"></a><a href="/think/西洲曲.html">西洲曲</a></h2>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker info ：查看系统(docker)层面信息，包括管理的images, containers数等</div></pre></td></tr></table></figure>
+<p>查找镜像，可做模糊搜索<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search &lt;image&gt;：在docker index中搜索image</div></pre></td></tr></table></figure></p>
+<p>下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull &lt;image&gt; ：从docker registry server 中下拉image</div></pre></td></tr></table></figure></p>
+<p>查看镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker images： 列出images</div><div class="line">docker images -a ：列出所有的images（包含历史）</div></pre></td></tr></table></figure></p>
+<p>删除镜像或容器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker rmi  &lt;image ID&gt;： 删除一个或多个image</div><div class="line">docker rm  &lt;container ID&gt;： 删除一个或多个container</div><div class="line">docker rm `docker ps -a -q` ：删除所有的container</div><div class="line">docker ps -a -q | xargs docker rm ：同上, 删除所有的container</div></pre></td></tr></table></figure></p>
+<p>使用镜像创建容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">docker run [options] [image]</div><div class="line">options:</div><div class="line">-d 以后台方式运行</div><div class="line">-p 指定端口映射 </div><div class="line">-p &lt;host_port:contain_port&gt;</div><div class="line">docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">-i -t 一般同时使用，在新容器内指定一个伪终端或终端，并允许进行交互</div><div class="line">docker run -i -t centos:6.9 /bin/bash :使用镜像centos:6.9创建container并进入交互模式, login shell是/bin/bash</div></pre></td></tr></table></figure></p>
+<p>查看容器:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker ps ：列出当前所有正在运行的container</div><div class="line">docker ps -l ：列出最近一次启动的container</div><div class="line">docker ps -a ：列出所有的container（包含历史，即运行过的container）</div><div class="line">docker ps -q ：列出最近一次运行的container ID</div></pre></td></tr></table></figure></p>
+<p>开启/停止/重启/连接container:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker start/stop/restart &lt;container&gt; :注：使用start是启动已经创建过得container，使用run则通过image开启一个新的container。</div><div class="line">docker attach [container_id] ：连接一个正在运行的container实例（即实例必须为start状态，可以多个窗口同时attach一个container实例）</div></pre></td></tr></table></figure></p>
+<p>通过容器生成新的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker commit &lt;container&gt; [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选。</div></pre></td></tr></table></figure></p>
+<p>容器备份、恢复和迁移：<br>docker的备份方式有export和save两种。<br>export备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export是当前的状态，针对的是容器，docker save 是针对镜像images。</div><div class="line">  $ docker export [CONTAINER ID] &gt;export.tar  //export是把容器打成一个tar包。</div><div class="line">import恢复：</div><div class="line">  $ cat export.tar | docker import - repo:tag</div></pre></td></tr></table></figure></p>
+<p> save备份：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $  docker save repo:tag &gt;save.tar</div><div class="line">恢复镜像:</div><div class="line"> $  docker load &lt;save.tar</div><div class="line">对image打tag</div><div class="line">$ docker tag imageID repo:tag</div></pre></td></tr></table></figure></p>
+<p>两者的区别:</p>
+<p>导出后再导入(exported-imported)的镜像会丢失所有的历史，而保存后再加载（saveed-loaded）的镜像没有丢失历史和层 (layer)。这意味着使用导出后再导入的方式，你将无法回滚到之前的层(layer)，同时，使用保存后再加载的方式持久化整个镜像，就可以做到层回滚（可以执行docker tag <layer id=""> <image name="">来回滚之前的层）。</image></layer></p>
+
       
 
       
@@ -243,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/think/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/dockerStudy.html" alt="微信分享二维码">
     </div>
 </div>
 
