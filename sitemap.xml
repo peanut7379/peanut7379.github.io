@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html</loc>
+    
+    <lastmod>2018-01-20T06:31:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/centos+shadowsocks%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html</loc>
     
     <lastmod>2018-01-20T06:22:14.000Z</lastmod>
