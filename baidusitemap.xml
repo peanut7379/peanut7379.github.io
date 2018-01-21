@@ -3,6 +3,170 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2017/03/18/w3m%E6%96%87%E5%AD%97%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2018-01-21T14:43:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>w3m文字浏览器基本操作</title>
+        <pubTime>2017-03-17T16:00:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>w3m</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/15/dockerStudy/</loc>
+    <lastmod>2018-01-21T14:42:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>docker学习整理</title>
+        <pubTime>2017-04-14T16:00:00.000Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/14/docker%E4%B8%8Bcentos6.9%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85jira%E5%8F%8A%E7%A0%B4%E8%A7%A3%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-01-21T14:42:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>docker下centos6.9镜像安装jira及破解完整操作记录</title>
+        <pubTime>2017-04-13T16:00:00.000Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>jira</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/16/VPS%E8%B0%83%E7%A0%94/</loc>
+    <lastmod>2018-01-21T14:40:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>VPS调研</title>
+        <pubTime>2017-05-15T16:00:00.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/16/bash%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%A4%84%E7%90%86%E6%AD%A5%E9%AA%A4%E5%8F%8A%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2018-01-21T14:40:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash命令行处理步骤及源码解析</title>
+        <pubTime>2017-03-15T16:00:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/02/28/centos+shadowsocks%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
+    <lastmod>2018-01-21T14:38:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>centos+shadowsocks科学上网</title>
+        <pubTime>2017-02-27T16:00:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>shadowsocks</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/30/Nginx%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2018-01-21T14:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx发布网站</title>
+        <pubTime>2017-04-29T16:00:00.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/22/Mac%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-01-21T14:35:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac使用</title>
+        <pubTime>2017-05-21T16:00:00.000Z</pubTime>
+        
+        <tag>Mac使用</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/06/28/airflow%E5%89%8D%E7%AB%AF%E5%88%B0%E5%90%8E%E5%8F%B0%E8%B0%83%E7%94%A8%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2018-01-21T14:32:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>airlofw前端到后台调用逻辑分析</title>
+        <pubTime>2017-06-27T16:00:00.000Z</pubTime>
+        
+        <tag>airflow</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
     
     
@@ -16,6 +180,66 @@
     
     
     
+  <url>
+    <loc>http://yoursite.com/2017/03/26/git%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-01-20T16:00:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>git个人博客使用</title>
+        <pubTime>2017-03-25T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/16/html+css%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-05-25T16:00:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>html+css笔记</title>
+        <pubTime>2017-04-15T16:00:00.000Z</pubTime>
+        
+        <tag>html</tag>
+         
+        <tag>css</tag>
+         
+        <tag>前端</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/16/Javascript%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-05-25T16:00:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript笔记</title>
+        <pubTime>2017-04-15T16:00:00.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
     
   <url>
@@ -38,4 +262,23 @@
     
     
     
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/29/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-01-20T16:00:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>shell常用命令笔记</title>
+        <pubTime>2017-05-28T16:00:00.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
 </urlset>
