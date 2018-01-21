@@ -21,7 +21,9 @@ vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u �
 <meta property="og:image" content="http://yoursite.com/img/runShell.png">
 <meta property="og:image" content="http://yoursite.com/img/awk1.png">
 <meta property="og:image" content="http://yoursite.com/img/awk2.png">
-<meta property="og:updated_time" content="2018-01-20T13:34:46.000Z">
+<meta property="og:image" content="http://yoursite.com/img/iptables1.png">
+<meta property="og:image" content="http://yoursite.com/img/iptables2.png">
+<meta property="og:updated_time" content="2017-01-20T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell常用命令笔记">
 <meta name="twitter:description" content="通过 uname -r 命令查看你当前的内核版本:12$ uname -r3.10.0-327.el7.x86_64
@@ -188,7 +190,7 @@ vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u �
 
         
         <a href="/tags/shell常用命令笔记.html" class="archive-article-date">
-  	<time datetime="2018-01-20T13:34:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+  	<time datetime="2017-05-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
 </a>
         
       </header>
@@ -205,6 +207,9 @@ vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u �
 <p><img src="/img/awk1.png" alt=""><br><img src="/img/awk2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk ‘&#123;if($4~/brown/) print $0&#125;’ grade.txt   //匹配第四列包含字符串brown的，然后打印匹配记录行</div><div class="line">精确匹配用==</div><div class="line">$ awk &apos;$3==“brown” &#123;print $0&#125;’ grade.txt</div><div class="line">$ awk ‘&#123;if($4 !~/brown/) print $0&#125;’ grade.txt //不匹配第四列包含字符串brown的，然后打印匹配记录行</div></pre></td></tr></table></figure></p>
 <h3 id="sort命令："><a href="#sort命令：" class="headerlink" title="sort命令："></a>sort命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sort -c filename  //检查文件是否已分类</div><div class="line">sort -t: filename  //以第1域进行分类(默认)，域分隔符为“:”，默认为空格</div><div class="line">sort -t: -r filename  //-r逆序分类</div><div class="line">sort -u filename  //去除重复行</div><div class="line">sort -t: -k2 filename  //以第2域进行分类</div><div class="line">sort -k2 -k4 filename  //先以第4域,再以第1域分类</div></pre></td></tr></table></figure>
 <h3 id="ls命令："><a href="#ls命令：" class="headerlink" title="ls命令："></a>ls命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ll等价于 ls -l</div><div class="line">输出文件大小以B为单位</div></pre></td></tr></table></figure>
+<h3 id="iptables查看及修改防火墙规则："><a href="#iptables查看及修改防火墙规则：" class="headerlink" title="iptables查看及修改防火墙规则："></a>iptables查看及修改防火墙规则：</h3><p>查看规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo iptables -nL --line-number</div><div class="line"></div><div class="line">-L 查看当前表的所有规则，默认查看的是filter表，如果要查看NAT表，可以加上-t NAT参数</div><div class="line">-n 不对ip地址进行反查，加上这个参数显示速度会快很多</div><div class="line">-v 输出详细信息，包含通过该规则的数据包数量，总字节数及相应的网络接口</div><div class="line">–line-number 显示规则的序列号，这个参数在删除或修改规则时会用到</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables1.png" alt=""><br>-R参数修改规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo iptables -R INPUT 5 -j ACCEPT</div><div class="line">sudo iptables -R FORWARD 1 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables2.png" alt=""></p>
 
       
 
