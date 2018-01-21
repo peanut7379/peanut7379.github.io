@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>VPS调研 | Peanut&#39;s Home</title>
+  <title>Mac使用 | Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="比较：1、 http://blog.csdn.net/zhang_zp2014/article/details/468222632、搬瓦工与vultr及linode三家VPS服务商http://www.bawagon.com/bandwagonvultrlinode/首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好">
+  <meta name="description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
+关闭：kill -9 PID">
 <meta property="og:type" content="website">
-<meta property="og:title" content="VPS调研">
-<meta property="og:url" content="http://yoursite.com/tags/VPS调研.html">
+<meta property="og:title" content="Mac使用">
+<meta property="og:url" content="http://yoursite.com/linux/Mac使用.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="比较：1、 http://blog.csdn.net/zhang_zp2014/article/details/468222632、搬瓦工与vultr及linode三家VPS服务商http://www.bawagon.com/bandwagonvultrlinode/首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好">
-<meta property="og:updated_time" content="2018-01-21T11:40:36.000Z">
+<meta property="og:description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
+关闭：kill -9 PID">
+<meta property="og:updated_time" content="2018-01-21T11:49:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VPS调研">
-<meta name="twitter:description" content="比较：1、 http://blog.csdn.net/zhang_zp2014/article/details/468222632、搬瓦工与vultr及linode三家VPS服务商http://www.bawagon.com/bandwagonvultrlinode/首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好">
+<meta name="twitter:title" content="Mac使用">
+<meta name="twitter:description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
+关闭：kill -9 PID">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -58,7 +61,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/">linux</a></li>
+				<li><a href="/linux/">linux</a></li>
 	        
 				<li><a href="/research/">科研</a></li>
 	        
@@ -152,7 +155,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/">linux</a></li>
+					<li style="width: 20%"><a href="/linux/">linux</a></li>
 		        
 					<li style="width: 20%"><a href="/research/">科研</a></li>
 		        
@@ -180,24 +183,21 @@
         
   
     <h1 class="article-title" itemprop="name">
-      VPS调研
+      Mac使用
     </h1>
   
 
         
-        <a href="/tags/VPS调研.html" class="archive-article-date">
-  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+        <a href="/linux/Mac使用.html" class="archive-article-date">
+  	<time datetime="2017-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>比较：<br>1、 <a href="http://blog.csdn.net/zhang_zp2014/article/details/46822263" target="_blank" rel="external">http://blog.csdn.net/zhang_zp2014/article/details/46822263</a><br>2、搬瓦工与vultr及linode三家VPS服务商<br><a href="http://www.bawagon.com/bandwagonvultrlinode/" target="_blank" rel="external">http://www.bawagon.com/bandwagonvultrlinode/</a><br>首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好。因此追求性能的选择Vultr及Linode ,追求价格的可以选择搬瓦工VPS。</p>
-<p>Xen、OpenVZ、KVM三大VPS技术优劣势详解<br>基于KVM系统好，能保证内存<br><a href="http://vps.zzidc.com/vpsjishu/452.html" target="_blank" rel="external">http://vps.zzidc.com/vpsjishu/452.html</a></p>
-<p>VPS服务器全面性能测试：<br><a href="https://www.freehao123.com/vps-cpu-io-unixbench/" target="_blank" rel="external">https://www.freehao123.com/vps-cpu-io-unixbench/</a></p>
-<p>VPS主机的CPU详细参数:<br>$ cat /proc/cpuinfo<br>查看内存信息：<br>cat /proc/meminfo<br>测试硬盘读写速度：<br>sudo dd if=/dev/zero of=test bs=1M count=1024</p>
-<p>172.104.111.103<br>172.104.111.103<br>ssserver -p 8383 -k 201702 -m rc4-md5 -d start</p>
+        <h2 id="关闭端口占用方法："><a href="#关闭端口占用方法：" class="headerlink" title="关闭端口占用方法："></a>关闭端口占用方法：</h2><p>查询PID:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i:端口号</div></pre></td></tr></table></figure></p>
+<p>关闭：<br>kill -9 PID</p>
 
       
 
@@ -256,7 +256,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/VPS调研.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/linux/Mac使用.html" alt="微信分享二维码">
     </div>
 </div>
 

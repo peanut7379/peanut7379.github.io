@@ -6,26 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>docker下centos6.9镜像安装jira及破解完整操作记录 | Peanut&#39;s Home</title>
+  <title>airlofw前端到后台调用逻辑分析 | Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明：以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件在这里,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~1.下载docker mac版2.在https://hub.docker.com/explore/上查找镜像，   也可以使用 docker search 命令来搜索镜像。   docker">
+  <meta name="description" content="传参方式分析：使用docker镜像：puckel/docker-airflow
+下载镜像：1$ docker pull puckel/docker-airflow
+启动：12$ docker run -d -p 8080:8080 puckel/docker-airflow（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）
+进入docker：1docker exec -it [conta">
 <meta property="og:type" content="website">
-<meta property="og:title" content="docker下centos6.9镜像安装jira及破解完整操作记录">
-<meta property="og:url" content="http://yoursite.com/tags/docker下centos6.9镜像安装jira及破解完整操作记录.html">
+<meta property="og:title" content="airlofw前端到后台调用逻辑分析">
+<meta property="og:url" content="http://yoursite.com/linux/airflow前端到后台调用逻辑分析.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="说明：以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件在这里,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~1.下载docker mac版2.在https://hub.docker.com/explore/上查找镜像，   也可以使用 docker search 命令来搜索镜像。   docker">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker1.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker2.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker4.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker5.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker6.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker7.png">
-<meta property="og:image" content="http://yoursite.com/img/docker/docker8.png">
-<meta property="og:updated_time" content="2018-01-21T11:44:49.000Z">
+<meta property="og:description" content="传参方式分析：使用docker镜像：puckel/docker-airflow
+下载镜像：1$ docker pull puckel/docker-airflow
+启动：12$ docker run -d -p 8080:8080 puckel/docker-airflow（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）
+进入docker：1docker exec -it [conta">
+<meta property="og:image" content="http://yoursite.com/img/airflow/run.png">
+<meta property="og:image" content="http://yoursite.com/img/airflow/click.png">
+<meta property="og:image" content="http://yoursite.com/img/airflow/expose.png">
+<meta property="og:image" content="http://yoursite.com/img/airflow/import.png">
+<meta property="og:updated_time" content="2018-01-21T11:50:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker下centos6.9镜像安装jira及破解完整操作记录">
-<meta name="twitter:description" content="说明：以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件在这里,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~1.下载docker mac版2.在https://hub.docker.com/explore/上查找镜像，   也可以使用 docker search 命令来搜索镜像。   docker">
-<meta name="twitter:image" content="http://yoursite.com/img/docker/docker1.png">
+<meta name="twitter:title" content="airlofw前端到后台调用逻辑分析">
+<meta name="twitter:description" content="传参方式分析：使用docker镜像：puckel/docker-airflow
+下载镜像：1$ docker pull puckel/docker-airflow
+启动：12$ docker run -d -p 8080:8080 puckel/docker-airflow（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）
+进入docker：1docker exec -it [conta">
+<meta name="twitter:image" content="http://yoursite.com/img/airflow/run.png">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -66,7 +72,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/">linux</a></li>
+				<li><a href="/linux/">linux</a></li>
 	        
 				<li><a href="/research/">科研</a></li>
 	        
@@ -160,7 +166,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/">linux</a></li>
+					<li style="width: 20%"><a href="/linux/">linux</a></li>
 		        
 					<li style="width: 20%"><a href="/research/">科研</a></li>
 		        
@@ -188,60 +194,31 @@
         
   
     <h1 class="article-title" itemprop="name">
-      docker下centos6.9镜像安装jira及破解完整操作记录
+      airlofw前端到后台调用逻辑分析
     </h1>
   
 
         
-        <a href="/tags/docker下centos6.9镜像安装jira及破解完整操作记录.html" class="archive-article-date">
-  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
+        <a href="/linux/airflow前端到后台调用逻辑分析.html" class="archive-article-date">
+  	<time datetime="2017-06-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>说明：<br>以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件<a href="https://pan.baidu.com/s/1geNQp03" target="_blank" rel="external">在这里</a>,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~<br>1.下载docker mac版<br>2.在<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a>上查找镜像，<br>   也可以使用 docker search 命令来搜索镜像。<br>   docker search <image>：在docker index中搜索image,例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure></image></p>
-<p><img src="/img/docker/docker1.png" alt=""><br>    红色箭头显示为官方版本<br>    我们选择官方版本，但是可以通过选择版本标签来匹配安装版本，例如：<br>    docker pull centos:5.11 or docker pull centos:6.6</p>
-<p>3.下载cantos6.9版本的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos:6.9</div></pre></td></tr></table></figure></p>
-<p>之后打开进入容器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos:6.9 /bin/bash</div></pre></td></tr></table></figure></p>
-<p>-t:在新容器内指定一个伪终端或终端。<br>-i:允许你对容器内的标准输入 (STDIN) 进行交互。<br>        查看系统版本<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release</div></pre></td></tr></table></figure></p>
-<p>4.安装mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install -y mysql-server mysql</div></pre></td></tr></table></figure></p>
-<p>-y代表自动选择y</p>
-<p>5.安装完成以后启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div></pre></td></tr></table></figure></p>
-<p>6.验证安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker2.png" alt=""><br>7.安装jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir java</div></pre></td></tr></table></figure></p>
-<p>8.mac主机中查看docker容器ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure></p>
-<p>使用cp命令把主机的文件拷贝到docker容器：格式：<br><img src="/img/docker/docker4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/jdk-8u121-linux-x64.tar containerID:/home/java/jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>9.容器交互终端下解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>配置环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/profile</div></pre></td></tr></table></figure></p>
-<p>文件最后添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/home/java/jdk1.8.0_121</div><div class="line">CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</div><div class="line">export PATH CLASSPATH JAVA_HOME</div></pre></td></tr></table></figure></p>
-<p>这样JDK就设置好了，然后以下命令使其生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># source /etc/profile</div><div class="line"># echo $JAVA_HOME 验证java的路径</div></pre></td></tr></table></figure></p>
-<p>10.拷贝jira安装包到容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-jira-6.3.6.tar containerID:/home/jira/atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>jira的8005和8080端口都重新修改一下，在server.xml中，我的修改为8007和8099了，修改方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi jira/atlassian-jira-6.3.6-standalone/conf/server.xml</div></pre></td></tr></table></figure></p>
-<p>在其中找到8005和8080进行修改<br>接着在atlassian-jira-6.3.6-standalone文件同目录下创建一个文件夹：jira_home，修改配置文件<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties</div></pre></td></tr></table></figure></p>
-<p>修改为如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jira.home = /home/jira/jira_home</div></pre></td></tr></table></figure></p>
-<p>启动jira服务：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>11.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysql -u root -p</div></pre></td></tr></table></figure></p>
-<p>默认无密码<br>创建数据库jiradb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database jiradb character set gbk;</div></pre></td></tr></table></figure></p>
-<p>创建用户并赋予权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create user jirauser identified by &apos;password&apos;;</div><div class="line"></div><div class="line">&gt; GRANT ALL ON jiradb.* TO &apos;jirauser&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; with grant option;</div><div class="line"></div><div class="line">&gt; flush privileges;</div></pre></td></tr></table></figure></p>
-<p>12.在JIRA的数据目录下删除文件：dbconfig.xml,删除这个文件再重启jira后就可以重新看到初始配置界面，这里可不执行这一步~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># rm -f /home/lijingdong/jira/jira_home/dbconfig.xml</div></pre></td></tr></table></figure></p>
-<p>13.重新启动JIRA服务<br>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/shutdown.sh</div></pre></td></tr></table></figure></p>
-<p>14.记下容器ID,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ exit 退出容器</div></pre></td></tr></table></figure></p>
-<p>15.docker commit 命令创建新镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker commit containerID centos6/jira:1.0</div></pre></td></tr></table></figure></p>
-<p>注意，如果不commit创建新镜像，之前的修改就都没了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images查看新创建的镜像：</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker5.png" alt=""><br>16.重启镜像，并将端口8099映射到主机的8099端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t -p 8099:8099 centos6/jira:1.0  /bin/bash</div></pre></td></tr></table></figure></p>
-<p>此时需重新启动mysql，重新source JAVA_HOME，重新启动jira：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div><div class="line"># source /etc/profile</div><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>然后打开0.0.0.0:8099即可看到jira</p>
-<p>17.jira破解:<br>将atlassian-universal-plugin-manager-plugin-2.17.13.jar复制到容器上/home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-<br>             INF/atlassian-bundled-plugins/下：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-universal-plugin-manager-plugin-2.17.13.jar containerID:/home/jira/atlassian-jira-</div><div class="line">  6.3.6-standalone/atlassian-jira/WEB-INF/atlassian-bundled-plugins/</div></pre></td></tr></table></figure></p>
-<p>将破解文件atlassian-extras-2.2.2.jar复制到容器上/home/lijingdong/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/lib/目录下替换同名文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-extras-2.2.2.jar containerID:/home/jira/atlassian-jira-6.3.6-standalone/atlassian-</div><div class="line">   jira/WEB-INF/lib</div></pre></td></tr></table></figure></p>
-<p>之后重启jira。<br>点击右上角齿轮形状的管理图标，选择“系统”，再选择“授权”，看到使用日期不到1个月，如下所示：<br><img src="/img/docker/docker6.png" alt=""><br><img src="/img/docker/docker7.png" alt=""><br>填写授权码，授权码参数范例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Description=JIRA: Commercial,</div><div class="line">CreationDate=你的安装日期，格式（yyyy-mm-dd）,</div><div class="line">jira.LicenseEdition=ENTERPRISE,</div><div class="line">Evaluation=false,</div><div class="line">jira.LicenseTypeName=COMMERCIAL,</div><div class="line">jira.active=true,</div><div class="line">licenseVersion=2,</div><div class="line">MaintenanceExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">Organisation=joiandjoin,</div><div class="line">SEN=你申请到的SEN注意没有前缀LID,</div><div class="line">ServerID=你申请到的ServerID,</div><div class="line">jira.NumberOfUsers=-1,</div><div class="line">LicenseID=LID你申请到的SEN，注意LID前缀不要丢掉,</div><div class="line">LicenseExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">PurchaseDate=你的安装日期，格式（yyyy-mm-dd）</div></pre></td></tr></table></figure></p>
-<p>破解完成:<br><img src="/img/docker/docker8.png" alt=""><br>18.docker容器跨服务器迁移：<br>    有<a href="http://www.jb51.net/article/104529.htm" target="_blank" rel="external">两种方法</a>，我们使用save方式:<br>备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  docker save centos6/jira:2.0 &gt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>使用scp命令将文件拷贝到远程服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp /Users/peanut/Documents/Data\ Study/centos6_jira.tar user@serverIP:/home/user</div></pre></td></tr></table></figure></p>
-<p>恢复：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker load &lt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>查看恢复的镜像：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure></p>
+        <p><font color="#ff0000"><strong>传参方式分析：</strong></font><br>使用docker镜像：<br>puckel/docker-airflow</p>
+<p>下载镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull puckel/docker-airflow</div></pre></td></tr></table></figure></p>
+<p>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）</div></pre></td></tr></table></figure></p>
+<p>进入docker：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [container_name] bash</div></pre></td></tr></table></figure></p>
+<p>接下来以分析tutorial为例：<br>分析run按钮：<br><img src="/img/airflow/run.png" alt=""><br>点击的script代码如下：<br><img src="/img/airflow/click.png" alt=""><br>这个函数首先组装一个url地址，然后window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Id选择器： 以“#”来定义</div><div class="line">class选择器：以“.”来定义</div><div class="line">hasClass() 方法检查被选元素是否包含指定的 class，返回true或false</div><div class="line">encodeURIComponent() 函数可把字符串作为 URI 组件进行编码，该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * &apos; ( ) ，</div><div class="line">该函数假定它的参数是 URI 的一部分，因此 encodeURIComponent() 函数将转义用于分隔 URI 各个部分的标点符号。</div></pre></td></tr></table></figure></p>
+<p>组装格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/airflow/run?task_id= &amp;dag_id=&amp;ignore_all_deps &amp;ignore_task_deps= &amp;ignore_ti_state= &amp;execution_date= &amp;origin=</div></pre></td></tr></table></figure></p>
+<p>可以通过在web调试窗设断点来找出最终组合的字符串如下形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;/admin/airflow/run?task_id=sleep&amp;dag_id=tutorial&amp;ignore_all_deps=false&amp;ignore_task_deps=false&amp;ignore_ti_state=false&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div><div class="line"></div><div class="line">&quot;/admin/airflow/success?task_id=templated&amp;dag_id=tutorial&amp;upstream=false&amp;downstream=false&amp;future=false&amp;past=true&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div></pre></td></tr></table></figure></p>
+<p>这里我们就找到了airflow前端到后台调用的方式（通过url传参），接下来需要找出如何通过url传参到后台响应：</p>
+<p><font color="#ff0000"><strong>url传参分析：</strong></font><br>先贴最终结果，airflow使用的是python的flask框架，定义的文件在如下路径的python文件里，从下图中我们可以看到暴露了/run路径，同样的还有success也是以这种方式暴露的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/python2.7/dist-packages/airflow/www/views.py</div></pre></td></tr></table></figure></p>
+<p><img src="/img/airflow/expose.png" alt=""></p>
+<p>至于如何找到用什么框架方法，是先通过组装好的url的特征字符串比如“run”，然后使用grep命令进行文件内容查找，锁定到views.py文件，然后查看import的<br>库找到所使用的框架，之后我们就可以通过学习框架继续深入研究airflow啦！这是我目前使用的分析逻辑，虽然笨了点，希望对大家能有所帮助，以此抛砖引玉，以后学习<br>更深入了了解的框架更多了，应该能根据经验判断出套用的框架或者调用方式，希望大家有更好的方法能与笔者交流~</p>
+<p><img src="/img/airflow/import.png" alt=""></p>
 
       
 
@@ -300,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/docker下centos6.9镜像安装jira及破解完整操作记录.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/linux/airflow前端到后台调用逻辑分析.html" alt="微信分享二维码">
     </div>
 </div>
 

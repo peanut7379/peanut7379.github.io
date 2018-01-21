@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Nginx发布网站 | Peanut&#39;s Home</title>
+  <title>shell常用命令笔记 | Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="修改配置原理：/etc/nginx/nginx.conf配置文件里的 http 配置区块里，用了一个 include 指令，把所有的在 /etc/nginx/conf.d 这个目录下面的 .conf 文件包含到了这里。include /etc/nginx/conf.d/*.conf;我们如果想去添加自己的配置，可以在/etc/nginx/conf.d 这个目录下新建一个以 .conf 结尾的文件，">
+  <meta name="description" content="通过 uname -r 命令查看你当前的内核版本:12$ uname -r3.10.0-327.el7.x86_64
+vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u 撤销上一步操作X 向后删除字符x 向前删除字符
+运行脚本两种方式：121、source scriptname  //这种方式就像直接输入一样2、./scriptname     //这种方式脚本运行在子">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nginx发布网站">
-<meta property="og:url" content="http://yoursite.com/tags/Nginx发布网站.html">
+<meta property="og:title" content="shell常用命令笔记">
+<meta property="og:url" content="http://yoursite.com/linux/shell常用命令笔记.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="修改配置原理：/etc/nginx/nginx.conf配置文件里的 http 配置区块里，用了一个 include 指令，把所有的在 /etc/nginx/conf.d 这个目录下面的 .conf 文件包含到了这里。include /etc/nginx/conf.d/*.conf;我们如果想去添加自己的配置，可以在/etc/nginx/conf.d 这个目录下新建一个以 .conf 结尾的文件，">
-<meta property="og:updated_time" content="2018-01-21T11:48:45.000Z">
+<meta property="og:description" content="通过 uname -r 命令查看你当前的内核版本:12$ uname -r3.10.0-327.el7.x86_64
+vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u 撤销上一步操作X 向后删除字符x 向前删除字符
+运行脚本两种方式：121、source scriptname  //这种方式就像直接输入一样2、./scriptname     //这种方式脚本运行在子">
+<meta property="og:image" content="http://yoursite.com/img/runShell.png">
+<meta property="og:image" content="http://yoursite.com/img/awk1.png">
+<meta property="og:image" content="http://yoursite.com/img/awk2.png">
+<meta property="og:image" content="http://yoursite.com/img/iptables1.png">
+<meta property="og:image" content="http://yoursite.com/img/iptables2.png">
+<meta property="og:updated_time" content="2017-01-20T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx发布网站">
-<meta name="twitter:description" content="修改配置原理：/etc/nginx/nginx.conf配置文件里的 http 配置区块里，用了一个 include 指令，把所有的在 /etc/nginx/conf.d 这个目录下面的 .conf 文件包含到了这里。include /etc/nginx/conf.d/*.conf;我们如果想去添加自己的配置，可以在/etc/nginx/conf.d 这个目录下新建一个以 .conf 结尾的文件，">
+<meta name="twitter:title" content="shell常用命令笔记">
+<meta name="twitter:description" content="通过 uname -r 命令查看你当前的内核版本:12$ uname -r3.10.0-327.el7.x86_64
+vi使用:12345670 移至行首$ 移至行尾u 撤销dd 删除光标所在行u 撤销上一步操作X 向后删除字符x 向前删除字符
+运行脚本两种方式：121、source scriptname  //这种方式就像直接输入一样2、./scriptname     //这种方式脚本运行在子">
+<meta name="twitter:image" content="http://yoursite.com/img/runShell.png">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -58,7 +70,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/">linux</a></li>
+				<li><a href="/linux/">linux</a></li>
 	        
 				<li><a href="/research/">科研</a></li>
 	        
@@ -152,7 +164,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/">linux</a></li>
+					<li style="width: 20%"><a href="/linux/">linux</a></li>
 		        
 					<li style="width: 20%"><a href="/research/">科研</a></li>
 		        
@@ -180,23 +192,32 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx发布网站
+      shell常用命令笔记
     </h1>
   
 
         
-        <a href="/tags/Nginx发布网站.html" class="archive-article-date">
-  	<time datetime="2017-04-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-30</time>
+        <a href="/linux/shell常用命令笔记.html" class="archive-article-date">
+  	<time datetime="2017-05-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>修改配置原理：<br>/etc/nginx/nginx.conf配置文件里的 http 配置区块里，用了一个 include 指令，把所有的在 /etc/nginx/conf.d 这个目录下面的 .conf 文件包含到了这里。<br>include /etc/nginx/conf.d/*.conf;<br>我们如果想去添加自己的配置，可以在/etc/nginx/conf.d 这个目录下新建一个以 .conf 结尾的文件，重新加载 nginx 以后，这些配置就会生效了。</p>
-<p>修改/etc/nginx/conf.d下default.conf配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80 default_server; #监听80端口</div><div class="line">    server_name  wuzhigang.com www.wuzhigang.com; #定义访问的域名</div><div class="line">    location / &#123;</div><div class="line">    root    /home/lijingdong/web; #网站的根目录位置</div><div class="line">    index 首页.html;   #定义首页索引文件名称</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>保存之后，sudo nginx -t测试配置文件语法是否正确，返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</div></pre></td></tr></table></figure></p>
-<p>然后service nginx reload重新加载nginx<br>配置好default.conf文件后,打开网址，显示403forbidden，是由于权限问题，修改nginx.conf文件下第一行为user root;即可</p>
+        <h3 id="通过-uname-r-命令查看你当前的内核版本"><a href="#通过-uname-r-命令查看你当前的内核版本" class="headerlink" title="通过 uname -r 命令查看你当前的内核版本:"></a>通过 uname -r 命令查看你当前的内核版本:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ uname -r</div><div class="line">3.10.0-327.el7.x86_64</div></pre></td></tr></table></figure>
+<h3 id="vi使用"><a href="#vi使用" class="headerlink" title="vi使用:"></a>vi使用:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">0 移至行首</div><div class="line">$ 移至行尾</div><div class="line">u 撤销</div><div class="line">dd 删除光标所在行</div><div class="line">u 撤销上一步操作</div><div class="line">X 向后删除字符</div><div class="line">x 向前删除字符</div></pre></td></tr></table></figure>
+<h3 id="运行脚本两种方式："><a href="#运行脚本两种方式：" class="headerlink" title="运行脚本两种方式："></a>运行脚本两种方式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1、source scriptname  //这种方式就像直接输入一样</div><div class="line">2、./scriptname     //这种方式脚本运行在子shell</div></pre></td></tr></table></figure>
+<p><img src="/img/runShell.png" alt=""></p>
+<h3 id="find命令："><a href="#find命令：" class="headerlink" title="find命令："></a>find命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">一般形式为:</div><div class="line">find pathname -options [-print -exec -ok]</div><div class="line">例：</div><div class="line">-name选项：</div><div class="line">$ find ~ -name &quot;*.txt&quot; -print</div><div class="line">$ find . -name &quot;[A-Z]*&quot; -print //当前目录及子目录中查找以大写字母开头</div><div class="line">$ find . -name &quot;[a-z][a-z][0--9][0--9].txt&quot; -print //在当前目录查找文件名以两个小写字母开头,跟着是两个数字,最后是 *.txt的文件</div><div class="line">$ find /etc -type d -print //-type查找所有的文件夹</div><div class="line">b - 块设备文件。</div><div class="line">d - 目录。</div><div class="line">c - 字符设备文件。</div><div class="line">p - 管道文件。</div><div class="line">l - 符号链接文件。</div><div class="line">f - 普通文件。</div></pre></td></tr></table></figure>
+<h3 id="grep命令："><a href="#grep命令：" class="headerlink" title="grep命令："></a>grep命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">一般格式为:</div><div class="line">grep [选项] 基本正则表达式 [文件]    //基本正则表达式可为字符串。</div><div class="line"></div><div class="line">常用的grep选项有:</div><div class="line">-c 只输出匹配行的计数，匹配的有几行</div><div class="line">-i 不区分大小写(只适用于单字符)。</div><div class="line">-h 查询多文件时不显示文件名。</div><div class="line">-l 查询多文件时只输出包含匹配字符的文件名。 -n 显示匹配行及行号。</div><div class="line">-s 不显示不存在或无匹配文本的错误信息。</div><div class="line">-v 显示不包含匹配文本的所有行</div><div class="line">例子：</div><div class="line">$ grep “sort&quot; *.doc</div><div class="line"></div><div class="line">$ grep “string&lt;tab&gt;” *  //&lt;Tab&gt;表示点击 tab键</div><div class="line"></div><div class="line">$ grep ’48[346]’ *   //使用 []来指定字符串范围,这里用48开始,以3或4或6结尾</div><div class="line"></div><div class="line">$ grep ‘[A-Z][B-Z]..C’ * //匹配头两个是大写字母，以C结尾，中间两位任意</div></pre></td></tr></table></figure>
+<h3 id="awk命令："><a href="#awk命令：" class="headerlink" title="awk命令："></a>awk命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">动作用&#123;&#125;括起来，if后面的条件用（）括起来</div><div class="line">awk执行时,其浏览域标记为 $1,$2...$n。这种方法称为域标识。使用$1,$3表示参照第1和第3域，可使用 $0,意即所有域</div><div class="line">例子：</div><div class="line">$ awk ‘&#123;print $0&#125;’ grade.txt &gt;test  //重定向输出到文件test，此时不显示</div><div class="line">$ awk ‘&#123;print $0&#125;’ grade.txt | tee test //重定向输出到文件test，并显示到屏幕</div><div class="line">匹配：使用~紧跟正则表达式</div><div class="line">$ docker ps -a | awk &apos;&#123;if($2~/p/) print $1&#125;’   // 通过管道找到docker ps -a命令输出中匹配第二列包含p的，然后输出第一列</div></pre></td></tr></table></figure>
+<p><img src="/img/awk1.png" alt=""><br><img src="/img/awk2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk ‘&#123;if($4~/brown/) print $0&#125;’ grade.txt   //匹配第四列包含字符串brown的，然后打印匹配记录行</div><div class="line">精确匹配用==</div><div class="line">$ awk &apos;$3==“brown” &#123;print $0&#125;’ grade.txt</div><div class="line">$ awk ‘&#123;if($4 !~/brown/) print $0&#125;’ grade.txt //不匹配第四列包含字符串brown的，然后打印匹配记录行</div></pre></td></tr></table></figure></p>
+<h3 id="sort命令："><a href="#sort命令：" class="headerlink" title="sort命令："></a>sort命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sort -c filename  //检查文件是否已分类</div><div class="line">sort -t: filename  //以第1域进行分类(默认)，域分隔符为“:”，默认为空格</div><div class="line">sort -t: -r filename  //-r逆序分类</div><div class="line">sort -u filename  //去除重复行</div><div class="line">sort -t: -k2 filename  //以第2域进行分类</div><div class="line">sort -k2 -k4 filename  //先以第4域,再以第1域分类</div></pre></td></tr></table></figure>
+<h3 id="ls命令："><a href="#ls命令：" class="headerlink" title="ls命令："></a>ls命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ll等价于 ls -l</div><div class="line">输出文件大小以B为单位</div></pre></td></tr></table></figure>
+<h3 id="iptables查看及修改防火墙规则："><a href="#iptables查看及修改防火墙规则：" class="headerlink" title="iptables查看及修改防火墙规则："></a>iptables查看及修改防火墙规则：</h3><p>查看规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo iptables -nL --line-number</div><div class="line"></div><div class="line">-L 查看当前表的所有规则，默认查看的是filter表，如果要查看NAT表，可以加上-t NAT参数</div><div class="line">-n 不对ip地址进行反查，加上这个参数显示速度会快很多</div><div class="line">-v 输出详细信息，包含通过该规则的数据包数量，总字节数及相应的网络接口</div><div class="line">–line-number 显示规则的序列号，这个参数在删除或修改规则时会用到</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables1.png" alt=""><br>-R参数修改规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo iptables -R INPUT 5 -j ACCEPT</div><div class="line">sudo iptables -R FORWARD 1 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables2.png" alt=""></p>
 
       
 
@@ -255,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/Nginx发布网站.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/linux/shell常用命令笔记.html" alt="微信分享二维码">
     </div>
 </div>
 

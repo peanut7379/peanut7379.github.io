@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mac使用 | Peanut&#39;s Home</title>
+  <title>Javascript笔记 | Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
-关闭：kill -9 PID">
+  <meta name="description" content="外部调用:1&amp;lt;script src=&quot;myScript.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+myScript.js 文件代码如下：1function myFunction()&amp;#123; document.getElementById(&quot;demo&quot;).innerHTML=&quot;我的第一个 JavaScript 函数&quot;; &amp;#125;
+注：外部脚本不包含&amp;lt;script&amp;gt; 标签">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mac使用">
-<meta property="og:url" content="http://yoursite.com/tags/Mac使用.html">
+<meta property="og:title" content="Javascript笔记">
+<meta property="og:url" content="http://yoursite.com/linux/Javascript笔记.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
-关闭：kill -9 PID">
-<meta property="og:updated_time" content="2018-01-21T11:49:36.000Z">
+<meta property="og:description" content="外部调用:1&amp;lt;script src=&quot;myScript.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+myScript.js 文件代码如下：1function myFunction()&amp;#123; document.getElementById(&quot;demo&quot;).innerHTML=&quot;我的第一个 JavaScript 函数&quot;; &amp;#125;
+注：外部脚本不包含&amp;lt;script&amp;gt; 标签">
+<meta property="og:updated_time" content="2017-05-25T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac使用">
-<meta name="twitter:description" content="关闭端口占用方法：查询PID:1lsof -i:端口号
-关闭：kill -9 PID">
+<meta name="twitter:title" content="Javascript笔记">
+<meta name="twitter:description" content="外部调用:1&amp;lt;script src=&quot;myScript.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+myScript.js 文件代码如下：1function myFunction()&amp;#123; document.getElementById(&quot;demo&quot;).innerHTML=&quot;我的第一个 JavaScript 函数&quot;; &amp;#125;
+注：外部脚本不包含&amp;lt;script&amp;gt; 标签">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -61,7 +64,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/">linux</a></li>
+				<li><a href="/linux/">linux</a></li>
 	        
 				<li><a href="/research/">科研</a></li>
 	        
@@ -155,7 +158,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/">linux</a></li>
+					<li style="width: 20%"><a href="/linux/">linux</a></li>
 		        
 					<li style="width: 20%"><a href="/research/">科研</a></li>
 		        
@@ -183,22 +186,76 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mac使用
+      Javascript笔记
     </h1>
   
 
         
-        <a href="/tags/Mac使用.html" class="archive-article-date">
-  	<time datetime="2017-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+        <a href="/linux/Javascript笔记.html" class="archive-article-date">
+  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关闭端口占用方法："><a href="#关闭端口占用方法：" class="headerlink" title="关闭端口占用方法："></a>关闭端口占用方法：</h2><p>查询PID:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i:端口号</div></pre></td></tr></table></figure></p>
-<p>关闭：<br>kill -9 PID</p>
-
+        <h3 id="外部调用"><a href="#外部调用" class="headerlink" title="外部调用:"></a>外部调用:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>myScript.js 文件代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123; <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"我的第一个 JavaScript 函数"</span>; &#125;</div></pre></td></tr></table></figure></p>
+<p>注：外部脚本不包含<code>&lt;script&gt;</code> 标签</p>
+<h3 id="输出：（4种方式）"><a href="#输出：（4种方式）" class="headerlink" title="输出：（4种方式）"></a>输出：（4种方式）</h3><p>1、 window.alert() 弹出警告框<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.alert(<span class="number">5</span> + <span class="number">6</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>2、 document.write() 方法将内容写到 HTML 文档中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;这是一个标题&lt;/h1&gt;"</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖</p>
+<p>3、使用 innerHTML 写入到 HTML 元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"My First JavaScript"</span>;</div></pre></td></tr></table></figure></p>
+<p>4、使用 console.log() 写入到浏览器的控制台<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(“string<span class="string">");</span></div></pre></td></tr></table></figure></p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量:"></a>定义变量:</h3><p><code>var name=&quot;Gates&quot;, age=56, job=&quot;CEO&quot;;</code><br>如果重新声明 JavaScript 变量，该变量的值不会丢失：</p>
+<p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：<br><code>var person={firstname:&quot;Bill&quot;, lastname:&quot;Gates&quot;, id:5566};</code><br>对象属性有两种寻址方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name=person.lastname;</div><div class="line">name=person[<span class="string">"lastname"</span>];</div></pre></td></tr></table></figure></p>
+<p><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我!&lt;/button&gt;</code></p>
+<p>使用 String 对象的 toUpperCase() 方法来把文本转换为大写：</p>
+<p>您会经常看到 document.getElementById(“some id”)。这个方法是 HTML DOM 中定义的。<br>DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function changeImage()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;img id="myimage" onclick="changeImage()"</div><div class="line">src="/images/pic_bulboff.gif" width="100" height="180"&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="改变-HTML-元素的样式"><a href="#改变-HTML-元素的样式" class="headerlink" title="改变 HTML 元素的样式:"></a>改变 HTML 元素的样式:</h3><p><code>x=document.getElementById(&quot;demo&quot;)</code> // 找到元素<br><code>x.style.color=&quot;#ff0000&quot;;</code>        // 改变样式</p>
+<h3 id="获取输入框内容："><a href="#获取输入框内容：" class="headerlink" title="获取输入框内容："></a>获取输入框内容：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id="demo" type="text”&gt; //输入框创建</div><div class="line">var x=document.getElementById("demo").value;</div></pre></td></tr></table></figure>
+<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//单行</div><div class="line">/*多行</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>JavaScript 对大小写是敏感的</p>
+<h3 id="对代码行进行折行："><a href="#对代码行进行折行：" class="headerlink" title="对代码行进行折行："></a>对代码行进行折行：</h3><p>您可以在文本字符串中使用反斜杠对代码行进行换行。下面的例子会正确地显示：<br><code>document.write(&quot;你好 \</code><br><code>世界!&quot;);</code><br>不过，您不能像这样折行：<br><code>document.write \</code><br><code>(&quot;你好世界!&quot;);</code></p>
+<p>常见的HTML事件的列表:</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onchange</td>
+<td style="text-align:left">HTML 元素改变</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td style="text-align:left">用户点击 HTML 元素</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td style="text-align:left">用户在一个HTML元素上移动鼠标</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td style="text-align:left">用户从一个HTML元素上移开鼠标</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td style="text-align:left">用户按下键盘按键</td>
+</tr>
+<tr>
+<td>onload</td>
+<td style="text-align:left">浏览器已完成页面的加载</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基于某些条件对变量进行赋值"><a href="#基于某些条件对变量进行赋值" class="headerlink" title="基于某些条件对变量进行赋值:"></a>基于某些条件对变量进行赋值:</h3><p><code>variablename=(condition)?value1:value2</code><br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">voteable=(age&lt;<span class="number">18</span>)?<span class="string">"年龄太小"</span>:<span class="string">"年龄已达到"</span>;</div><div class="line">time 当前<span class="number">24</span>小时制整点数字 例如<span class="number">2</span> <span class="number">15</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (condition1)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (condition2)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="改变HTML内容："><a href="#改变HTML内容：" class="headerlink" title="改变HTML内容："></a>改变HTML内容：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通过id查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"></div><div class="line">通过标签名查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"><span class="keyword">var</span> y=x.getElementsByTagName(<span class="string">"p"</span>);</div><div class="line"></div><div class="line">通过类名查找 HTML 元素:</div><div class="line">x=<span class="built_in">document</span>.getElementsByClassName(<span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
+<h3 id="改变HTML属性："><a href="#改变HTML属性：" class="headerlink" title="改变HTML属性："></a>改变HTML属性：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).属性标签=新属性值</div></pre></td></tr></table></figure>
+<h3 id="改变HTML样式："><a href="#改变HTML样式：" class="headerlink" title="改变HTML样式："></a>改变HTML样式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).style.property=新样式</div><div class="line">例如：</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>).style.color=<span class="string">"blue"</span>;</div></pre></td></tr></table></figure>
       
 
       
@@ -256,7 +313,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/Mac使用.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/linux/Javascript笔记.html" alt="微信分享二维码">
     </div>
 </div>
 
