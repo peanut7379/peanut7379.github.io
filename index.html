@@ -174,6 +174,64 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-airflow前端到后台调用逻辑分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/28/airflow前端到后台调用逻辑分析/">airlofw前端到后台调用逻辑分析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/28/airflow前端到后台调用逻辑分析/" class="archive-article-date">
+  	<time datetime="2017-06-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><font color="#ff0000"><strong>传参方式分析：</strong></font><br>使用docker镜像：<br>puckel/docker-airflow</p>
+<p>下载镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull puckel/docker-airflow</div></pre></td></tr></table></figure></p>
+<p>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）</div></pre></td></tr></table></figure></p>
+<p>进入docker：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [container_name] bash</div></pre></td></tr></table></figure></p>
+<p>接下来以分析tutorial为例：<br>分析run按钮：<br><img src="/img/airflow/run.png" alt=""><br>点击的script代码如下：<br><img src="/img/airflow/click.png" alt=""><br>这个函数首先组装一个url地址，然后window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Id选择器： 以“#”来定义</div><div class="line">class选择器：以“.”来定义</div><div class="line">hasClass() 方法检查被选元素是否包含指定的 class，返回true或false</div><div class="line">encodeURIComponent() 函数可把字符串作为 URI 组件进行编码，该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * &apos; ( ) ，</div><div class="line">该函数假定它的参数是 URI 的一部分，因此 encodeURIComponent() 函数将转义用于分隔 URI 各个部分的标点符号。</div></pre></td></tr></table></figure></p>
+<p>组装格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/airflow/run?task_id= &amp;dag_id=&amp;ignore_all_deps &amp;ignore_task_deps= &amp;ignore_ti_state= &amp;execution_date= &amp;origin=</div></pre></td></tr></table></figure></p>
+<p>可以通过在web调试窗设断点来找出最终组合的字符串如下形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;/admin/airflow/run?task_id=sleep&amp;dag_id=tutorial&amp;ignore_all_deps=false&amp;ignore_task_deps=false&amp;ignore_ti_state=false&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div><div class="line"></div><div class="line">&quot;/admin/airflow/success?task_id=templated&amp;dag_id=tutorial&amp;upstream=false&amp;downstream=false&amp;future=false&amp;past=true&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div></pre></td></tr></table></figure></p>
+<p>这里我们就找到了airflow前端到后台调用的方式（通过url传参），接下来需要找出如何通过url传参到后台响应：</p>
+<p><font color="#ff0000"><strong>url传参分析：</strong></font><br>先贴最终结果，airflow使用的是python的flask框架，定义的文件在如下路径的python文件里，从下图中我们可以看到暴露了/run路径，同样的还有success也是以这种方式暴露的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/python2.7/dist-packages/airflow/www/views.py</div></pre></td></tr></table></figure></p>
+<p><img src="/img/airflow/expose.png" alt=""></p>
+<p>至于如何找到用什么框架方法，是先通过组装好的url的特征字符串比如“run”，然后使用grep命令进行文件内容查找，锁定到views.py文件，然后查看import的<br>库找到所使用的框架，之后我们就可以通过学习框架继续深入研究airflow啦！这是我目前使用的分析逻辑，虽然笨了点，希望对大家能有所帮助，以此抛砖引玉，以后学习<br>更深入了了解的框架更多了，应该能根据经验判断出套用的框架或者调用方式，希望大家有更好的方法能与笔者交流~</p>
+<p><img src="/img/airflow/import.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
