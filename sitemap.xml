@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/block-chain/index.html</loc>
+    
+    <lastmod>2018-01-21T12:59:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/research/index.html</loc>
+    
+    <lastmod>2018-01-21T12:57:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-01-21T11:54:24.000Z</lastmod>
@@ -131,13 +145,6 @@
     <loc>http://yoursite.com/think/%E4%B8%91%E5%A5%B4%E5%84%BF.html</loc>
     
     <lastmod>2017-03-31T09:34:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/matlab/index.html</loc>
-    
-    <lastmod>2017-03-31T08:56:31.000Z</lastmod>
     
   </url>
   
