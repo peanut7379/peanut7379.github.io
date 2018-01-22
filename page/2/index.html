@@ -58,7 +58,7 @@
 	        
 				<li><a href="/categories/research/">科研</a></li>
 	        
-				<li><a href="/categories/block-chain/">block-chain</a></li>
+				<li><a href="/categories/economics/">经济学</a></li>
 	        
 				<li><a href="/categories/think/">随笔</a></li>
 	        
@@ -152,7 +152,7 @@
 		        
 					<li style="width: 20%"><a href="/categories/research/">科研</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/block-chain/">block-chain</a></li>
+					<li style="width: 20%"><a href="/categories/economics/">经济学</a></li>
 		        
 					<li style="width: 20%"><a href="/categories/think/">随笔</a></li>
 		        
@@ -170,6 +170,127 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-docker下centos6.9镜像安装jira及破解完整操作记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">docker下centos6.9镜像安装jira及破解完整操作记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/" class="archive-article-date">
+  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说明：<br>以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件<a href="https://pan.baidu.com/s/1geNQp03" target="_blank" rel="external">在这里</a>,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~<br>1.下载docker mac版<br>2.在<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a>上查找镜像，<br>   也可以使用 docker search 命令来搜索镜像。<br>   docker search <image>：在docker index中搜索image,例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure></image></p>
+<p><img src="/img/docker/docker1.png" alt=""><br>    红色箭头显示为官方版本<br>    我们选择官方版本，但是可以通过选择版本标签来匹配安装版本，例如：<br>    docker pull centos:5.11 or docker pull centos:6.6</p>
+<p>3.下载cantos6.9版本的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos:6.9</div></pre></td></tr></table></figure></p>
+<p>之后打开进入容器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos:6.9 /bin/bash</div></pre></td></tr></table></figure></p>
+<p>-t:在新容器内指定一个伪终端或终端。<br>-i:允许你对容器内的标准输入 (STDIN) 进行交互。<br>        查看系统版本<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release</div></pre></td></tr></table></figure></p>
+<p>4.安装mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install -y mysql-server mysql</div></pre></td></tr></table></figure></p>
+<p>-y代表自动选择y</p>
+<p>5.安装完成以后启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div></pre></td></tr></table></figure></p>
+<p>6.验证安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure></p>
+<p><img src="/img/docker/docker2.png" alt=""><br>7.安装jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir java</div></pre></td></tr></table></figure></p>
+<p>8.mac主机中查看docker容器ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure></p>
+<p>使用cp命令把主机的文件拷贝到docker容器：格式：<br><img src="/img/docker/docker4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/jdk-8u121-linux-x64.tar containerID:/home/java/jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
+<p>9.容器交互终端下解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
+<p>配置环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/profile</div></pre></td></tr></table></figure></p>
+<p>文件最后添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/home/java/jdk1.8.0_121</div><div class="line">CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</div><div class="line">export PATH CLASSPATH JAVA_HOME</div></pre></td></tr></table></figure></p>
+<p>这样JDK就设置好了，然后以下命令使其生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># source /etc/profile</div><div class="line"># echo $JAVA_HOME 验证java的路径</div></pre></td></tr></table></figure></p>
+<p>10.拷贝jira安装包到容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-jira-6.3.6.tar containerID:/home/jira/atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
+<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
+<p>jira的8005和8080端口都重新修改一下，在server.xml中，我的修改为8007和8099了，修改方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi jira/atlassian-jira-6.3.6-standalone/conf/server.xml</div></pre></td></tr></table></figure></p>
+<p>在其中找到8005和8080进行修改<br>接着在atlassian-jira-6.3.6-standalone文件同目录下创建一个文件夹：jira_home，修改配置文件<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties</div></pre></td></tr></table></figure></p>
+<p>修改为如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jira.home = /home/jira/jira_home</div></pre></td></tr></table></figure></p>
+<p>启动jira服务：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>11.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysql -u root -p</div></pre></td></tr></table></figure></p>
+<p>默认无密码<br>创建数据库jiradb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database jiradb character set gbk;</div></pre></td></tr></table></figure></p>
+<p>创建用户并赋予权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create user jirauser identified by &apos;password&apos;;</div><div class="line"></div><div class="line">&gt; GRANT ALL ON jiradb.* TO &apos;jirauser&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; with grant option;</div><div class="line"></div><div class="line">&gt; flush privileges;</div></pre></td></tr></table></figure></p>
+<p>12.在JIRA的数据目录下删除文件：dbconfig.xml,删除这个文件再重启jira后就可以重新看到初始配置界面，这里可不执行这一步~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># rm -f /home/lijingdong/jira/jira_home/dbconfig.xml</div></pre></td></tr></table></figure></p>
+<p>13.重新启动JIRA服务<br>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/shutdown.sh</div></pre></td></tr></table></figure></p>
+<p>14.记下容器ID,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ exit 退出容器</div></pre></td></tr></table></figure></p>
+<p>15.docker commit 命令创建新镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker commit containerID centos6/jira:1.0</div></pre></td></tr></table></figure></p>
+<p>注意，如果不commit创建新镜像，之前的修改就都没了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images查看新创建的镜像：</div></pre></td></tr></table></figure></p>
+<p><img src="/img/docker/docker5.png" alt=""><br>16.重启镜像，并将端口8099映射到主机的8099端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t -p 8099:8099 centos6/jira:1.0  /bin/bash</div></pre></td></tr></table></figure></p>
+<p>此时需重新启动mysql，重新source JAVA_HOME，重新启动jira：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div><div class="line"># source /etc/profile</div><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>然后打开0.0.0.0:8099即可看到jira</p>
+<p>17.jira破解:<br>将atlassian-universal-plugin-manager-plugin-2.17.13.jar复制到容器上/home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-<br>             INF/atlassian-bundled-plugins/下：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-universal-plugin-manager-plugin-2.17.13.jar containerID:/home/jira/atlassian-jira-</div><div class="line">  6.3.6-standalone/atlassian-jira/WEB-INF/atlassian-bundled-plugins/</div></pre></td></tr></table></figure></p>
+<p>将破解文件atlassian-extras-2.2.2.jar复制到容器上/home/lijingdong/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/lib/目录下替换同名文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-extras-2.2.2.jar containerID:/home/jira/atlassian-jira-6.3.6-standalone/atlassian-</div><div class="line">   jira/WEB-INF/lib</div></pre></td></tr></table></figure></p>
+<p>之后重启jira。<br>点击右上角齿轮形状的管理图标，选择“系统”，再选择“授权”，看到使用日期不到1个月，如下所示：<br><img src="/img/docker/docker6.png" alt=""><br><img src="/img/docker/docker7.png" alt=""><br>填写授权码，授权码参数范例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Description=JIRA: Commercial,</div><div class="line">CreationDate=你的安装日期，格式（yyyy-mm-dd）,</div><div class="line">jira.LicenseEdition=ENTERPRISE,</div><div class="line">Evaluation=false,</div><div class="line">jira.LicenseTypeName=COMMERCIAL,</div><div class="line">jira.active=true,</div><div class="line">licenseVersion=2,</div><div class="line">MaintenanceExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">Organisation=joiandjoin,</div><div class="line">SEN=你申请到的SEN注意没有前缀LID,</div><div class="line">ServerID=你申请到的ServerID,</div><div class="line">jira.NumberOfUsers=-1,</div><div class="line">LicenseID=LID你申请到的SEN，注意LID前缀不要丢掉,</div><div class="line">LicenseExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">PurchaseDate=你的安装日期，格式（yyyy-mm-dd）</div></pre></td></tr></table></figure></p>
+<p>破解完成:<br><img src="/img/docker/docker8.png" alt=""><br>18.docker容器跨服务器迁移：<br>    有<a href="http://www.jb51.net/article/104529.htm" target="_blank" rel="external">两种方法</a>，我们使用save方式:<br>备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  docker save centos6/jira:2.0 &gt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
+<p>使用scp命令将文件拷贝到远程服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp /Users/peanut/Documents/Data\ Study/centos6_jira.tar user@serverIP:/home/user</div></pre></td></tr></table></figure></p>
+<p>恢复：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker load &lt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
+<p>查看恢复的镜像：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jira</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-丑奴儿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -821,6 +942,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">block-chain Coco</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">block-chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Coco</a>
               </li>
             
             <div class="clearfix"></div>

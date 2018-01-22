@@ -58,7 +58,7 @@
 	        
 				<li><a href="/categories/research/">科研</a></li>
 	        
-				<li><a href="/categories/block-chain/">block-chain</a></li>
+				<li><a href="/categories/economics/">经济学</a></li>
 	        
 				<li><a href="/categories/think/">随笔</a></li>
 	        
@@ -152,7 +152,7 @@
 		        
 					<li style="width: 20%"><a href="/categories/research/">科研</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/block-chain/">block-chain</a></li>
+					<li style="width: 20%"><a href="/categories/economics/">经济学</a></li>
 		        
 					<li style="width: 20%"><a href="/categories/think/">随笔</a></li>
 		        
@@ -454,6 +454,108 @@
 
 
   
+    <article id="post-微软Coco Framework翻译学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/16/微软Coco Framework翻译学习/">微软Coco Framework翻译学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/16/微软Coco Framework翻译学习/" class="archive-article-date">
+  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>区块链是一种转型技术，有潜力将数字化转型扩展到公司four walls之外，并进入与供应商，客户和合作伙伴共享的过程。越来越多的企业正在投资区块链，作为一种安全透明的方式，以数字方式跟踪跨越信任边界的资产所有权，并就共享业务流程进行写作，为跨组织协作和富有想象力的新业务模式开创新机遇。</p>
+<p>微软致力于为企业提供区块链，并与客户，合作伙伴和区块链社区合作，继续推进企业就绪。我们的使命是通过提供开放，可扩展的平台和服务，帮助企业在这个安全的多方计算的新时代蓬勃发展，任何公司从分类账初创企业到零售商到健康提供商到全球银行都可以用它来改善共享业务流程。</p>
+<p>随着企业利用区块链技术来满足其业务需求，他们已经意识到许多现有的区块链协议不能满足关键的企业需求，如性能，机密性，治理和所需的处理能力。这是因为现有的系统被设计来在公开场景最大透明地以匿名，不可信任的角色来实现功能并达成共识。正因为如此，交易被明确地张贴出来供所有人来看，网络中的每个节点都执行每一个交易，并且必须采用计算密集型的共识算法。这些安全措施，虽然是确保公共区块链网络完整所必须的，但会根据重要的企业需求（如可扩展性和机密性）方面进行权衡。</p>
+<p>为了适应现有的公共区块链协议或者为了满足这些需求创建新的协议，通常将一个required企业属性交换为另一个，例如以更高的复杂度或更低的性能为代价改进机密性。<br>促进企业区块链采用</p>
+<p>今天我很高兴介绍Coco框架，一个开源系统，能够满足所有关键企业需求的高规模，机密的区块链网络，为加快生产企业采用区块链技术提供了一种手段。</p>
+<p>Coco通过专门为保密联盟设计来实现这一点，在这些联盟中，节点和角色被明确声明和控制。基于这些需求，Coco 提出一种可替代的方法来构建分类账(ledger)，为企业提供所需的可扩展性，分布式治理和增强的机密性，同时又不牺牲固有的安全性和不变性。</p>
+<p>利用现有的区块链协议，可靠执行环节（TEEs）例如Intel SGX and Windows Virtual Secure Mode (VSM)，分布式系统和加密技术，Coco可实现企业就绪区块链网络：</p>
+<ul>
+<li>吞吐量和延迟接近数据库速度</li>
+<li>更丰富，更灵活的特定业务机密模型</li>
+<li>通过分布式治理来实现网络策略管理</li>
+<li>支持非确定性交易</li>
+</ul>
+<p>通过提高这些功能，Coco提供了一个现有的区块链协议可以集成到一起的可信任的基础，来提供完整的企业级分类账（ledger）解决方案，为各行业开放广阔的，高规模的应用场景，进一步提升区块链的数字化转型业务的能力。</p>
+<p>我们已经开始探索Coco在各行业的潜力，包括零售，供应链和金融服务。</p>
+<pre><code>“在Coco框架内运行我们现在的供应链Dapp代码能够更快，这是一个巨大的性能改进，当我们和零售客户谈论企业区块链就绪时，这将减少很多摩擦。在不牺牲这种改进的情况下增加数据的机密性支持，能够引导我们用智能供应链设想的数字化转型。”
+                 - Tom Racette, Vice President, Global Retail Business Development, Mojix
+</code></pre><p>无论客户是设计一个端到端的贸易金融解决方案，利用区块链来确保边缘安全，还是利用企业智能合约来提高办公效率，Coco都能够满足他们的企业需求。微软是唯一一个提供跨 本地和公有云一致性的云服务商，同时为广大的应用程序提供访问丰富的Azure生态系统，这些应用将被构建在区块链之上作为共享的数据层。</p>
+<p>一个open approach</p>
+<p>按照设计，Coco是开放的，并且兼容任何区块链协议。微软已经开始将Ethereum整合到Coco中，我们很高兴地宣布J.P. Morgan Chase, Intel and R3已经分别致力于整合enterprise ledgers, Quorum, Hyperledger Sawtooth and Corda。这仅仅是一个开始，我们期待在不久的将来与其他ledgers探索整合机会。</p>
+<pre><code>“微软的Coco框架代表了实现高度可扩展的，机密的，以太坊或其他区块链网络的突破，这些区块链网络将成为新兴世界多种互联区块链系统的重要组成部分”。
+                                        - Joseph Lubin, Founder of ConsenSys
+</code></pre><p>我相信Coco只能从当今推动区块链创新的多元化和有才华的开源社区中受益。虽然Coco最初是Azure和微软研究院之间的合作，但已经从数十位客户和合作伙伴的投入中受益。开放Coco是一种扩展开发的方式，远超出我们最初工作组的范围和想象，我们的目的是在2018年初向社区贡献代码。</p>
+<p>Coco将通过设计和任何ledger协议兼容，并且可以在任何支持兼容TEE的云协议，操作系统和管理程序上运行。我们正在建立这种灵活性，让社区能够将Coco和其他协议集成在一起，在其他硬件上尝试，并将其应用在我们还没想到的企业场景中。</p>
+<p>行业对区块链的热情正在增长，虽然区块链还需要时间来实现企业保障，但我们仍然将激光聚焦于与社区合作来加速其发展和企业采用。</p>
+<p>要了解有关Coco的更多信息，您可以阅读我们的技术白皮书，并在MSCloud Youtube页面上观看我的demo，请务必在GitHub上star and follow the project，以跟上工作组的进展并接收有关最新进展的通知！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block-chain</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Coco</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/economics/" class="article-tag-list-link color5">economics</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/16/微软Coco Framework翻译学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-VPS调研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -611,6 +713,125 @@
 
 
   
+    <article id="post-html+css笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/16/html+css笔记/">html+css笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/16/html+css笔记/" class="archive-article-date">
+  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Html"><a href="#Html" class="headerlink" title="Html:"></a><font color="#ff0000"><strong>Html:</strong></font></h2><p><code>&lt;b&gt;加粗</code><br><code>&lt;p&gt;段落</code></p>
+<h3 id="method-属性"><a href="#method-属性" class="headerlink" title="method 属性:"></a>method 属性:</h3><p>表单数据可以作为 URL 变量（method=”get”）或者 HTTP post （method=”post”）的方式来发送。</p>
+<p>浏览器使用 method 属性设置的方法将表单中的数据传送给服务器进行处理。共有两种方法：POST 方法和 GET 方法。</p>
+<p>如果采用 POST 方法，浏览器将会按照下面两步来发送数据。首先，浏览器将与 action 属性中指定的表单处理服务器建立联系，一旦建立连接之后，浏览器就会按分段传输的方法将数据发送给服务器。</p>
+<p>在服务器端，一旦 POST 样式的应用程序开始执行时，就应该从一个标志位置读取参数，而一旦读到参数，在应用程序能够使用这些表单值以前，必须对这些参数进行解码。用户特定的服务器会明确指定应用程序应该如何接受这些参数。</p>
+<p>另一种情况是采用 GET 方法，这时浏览器会与表单处理服务器建立连接，然后直接在一个传输步骤中发送所有的表单数据：浏览器会将数据直接附在表单的 action URL 之后。这两者之间用问号进行分隔。</p>
+<h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则:"></a>JSON语法规则:</h3><ul>
+<li>数据为键/值对</li>
+<li>数据由逗号隔开</li>
+<li>大括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">JSON.parse()</td>
+<td style="text-align:left">将JSON字符串转为js对象</td>
+</tr>
+<tr>
+<td style="text-align:left">JSON.stringify()</td>
+<td style="text-align:left">将js值转为JSON字符串</td>
+</tr>
+</tbody>
+</table>
+<p>代码规范:<br>代码一行太长，建议在 运算符 或 逗号后换行</p>
+<p>变量声明时如果不使用<code>var</code>关键字，即使在函数内定义，也是全局变量。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS:"></a><font color="#ff0000"><strong>CSS:</strong></font></h2><p>语法格式：<br>selector {declaration；declaration；}<br>declaration格式<br>属性：[attribute=value] （注意：中间不要留有空格）<br>Id选择器： 以<code>#</code>来定义<br>class选择器：以<code>.</code>来定义</p>
+<p>三种颜色定义方式：</p>
+<ul>
+<li>十六进制 #ff0000</li>
+<li>RGB rgb(255,0,0)</li>
+<li>颜色名称 red<br><a href="http://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="external">CSS参考手册</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/16/html+css笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Javascript笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -743,125 +964,6 @@
 
 
   
-    <article id="post-html+css笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/html+css笔记/">html+css笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/html+css笔记/" class="archive-article-date">
-  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Html"><a href="#Html" class="headerlink" title="Html:"></a><font color="#ff0000"><strong>Html:</strong></font></h2><p><code>&lt;b&gt;加粗</code><br><code>&lt;p&gt;段落</code></p>
-<h3 id="method-属性"><a href="#method-属性" class="headerlink" title="method 属性:"></a>method 属性:</h3><p>表单数据可以作为 URL 变量（method=”get”）或者 HTTP post （method=”post”）的方式来发送。</p>
-<p>浏览器使用 method 属性设置的方法将表单中的数据传送给服务器进行处理。共有两种方法：POST 方法和 GET 方法。</p>
-<p>如果采用 POST 方法，浏览器将会按照下面两步来发送数据。首先，浏览器将与 action 属性中指定的表单处理服务器建立联系，一旦建立连接之后，浏览器就会按分段传输的方法将数据发送给服务器。</p>
-<p>在服务器端，一旦 POST 样式的应用程序开始执行时，就应该从一个标志位置读取参数，而一旦读到参数，在应用程序能够使用这些表单值以前，必须对这些参数进行解码。用户特定的服务器会明确指定应用程序应该如何接受这些参数。</p>
-<p>另一种情况是采用 GET 方法，这时浏览器会与表单处理服务器建立连接，然后直接在一个传输步骤中发送所有的表单数据：浏览器会将数据直接附在表单的 action URL 之后。这两者之间用问号进行分隔。</p>
-<h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则:"></a>JSON语法规则:</h3><ul>
-<li>数据为键/值对</li>
-<li>数据由逗号隔开</li>
-<li>大括号保存对象</li>
-<li>方括号保存数组</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">函数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">JSON.parse()</td>
-<td style="text-align:left">将JSON字符串转为js对象</td>
-</tr>
-<tr>
-<td style="text-align:left">JSON.stringify()</td>
-<td style="text-align:left">将js值转为JSON字符串</td>
-</tr>
-</tbody>
-</table>
-<p>代码规范:<br>代码一行太长，建议在 运算符 或 逗号后换行</p>
-<p>变量声明时如果不使用<code>var</code>关键字，即使在函数内定义，也是全局变量。</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS:"></a><font color="#ff0000"><strong>CSS:</strong></font></h2><p>语法格式：<br>selector {declaration；declaration；}<br>declaration格式<br>属性：[attribute=value] （注意：中间不要留有空格）<br>Id选择器： 以<code>#</code>来定义<br>class选择器：以<code>.</code>来定义</p>
-<p>三种颜色定义方式：</p>
-<ul>
-<li>十六进制 #ff0000</li>
-<li>RGB rgb(255,0,0)</li>
-<li>颜色名称 red<br><a href="http://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="external">CSS参考手册</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/html+css笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-dockerStudy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -935,127 +1037,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/04/15/dockerStudy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-docker下centos6.9镜像安装jira及破解完整操作记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">docker下centos6.9镜像安装jira及破解完整操作记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/" class="archive-article-date">
-  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>说明：<br>以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件<a href="https://pan.baidu.com/s/1geNQp03" target="_blank" rel="external">在这里</a>,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~<br>1.下载docker mac版<br>2.在<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a>上查找镜像，<br>   也可以使用 docker search 命令来搜索镜像。<br>   docker search <image>：在docker index中搜索image,例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure></image></p>
-<p><img src="/img/docker/docker1.png" alt=""><br>    红色箭头显示为官方版本<br>    我们选择官方版本，但是可以通过选择版本标签来匹配安装版本，例如：<br>    docker pull centos:5.11 or docker pull centos:6.6</p>
-<p>3.下载cantos6.9版本的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos:6.9</div></pre></td></tr></table></figure></p>
-<p>之后打开进入容器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos:6.9 /bin/bash</div></pre></td></tr></table></figure></p>
-<p>-t:在新容器内指定一个伪终端或终端。<br>-i:允许你对容器内的标准输入 (STDIN) 进行交互。<br>        查看系统版本<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release</div></pre></td></tr></table></figure></p>
-<p>4.安装mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install -y mysql-server mysql</div></pre></td></tr></table></figure></p>
-<p>-y代表自动选择y</p>
-<p>5.安装完成以后启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div></pre></td></tr></table></figure></p>
-<p>6.验证安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker2.png" alt=""><br>7.安装jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir java</div></pre></td></tr></table></figure></p>
-<p>8.mac主机中查看docker容器ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure></p>
-<p>使用cp命令把主机的文件拷贝到docker容器：格式：<br><img src="/img/docker/docker4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/jdk-8u121-linux-x64.tar containerID:/home/java/jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>9.容器交互终端下解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>配置环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/profile</div></pre></td></tr></table></figure></p>
-<p>文件最后添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/home/java/jdk1.8.0_121</div><div class="line">CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</div><div class="line">export PATH CLASSPATH JAVA_HOME</div></pre></td></tr></table></figure></p>
-<p>这样JDK就设置好了，然后以下命令使其生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># source /etc/profile</div><div class="line"># echo $JAVA_HOME 验证java的路径</div></pre></td></tr></table></figure></p>
-<p>10.拷贝jira安装包到容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-jira-6.3.6.tar containerID:/home/jira/atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>jira的8005和8080端口都重新修改一下，在server.xml中，我的修改为8007和8099了，修改方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi jira/atlassian-jira-6.3.6-standalone/conf/server.xml</div></pre></td></tr></table></figure></p>
-<p>在其中找到8005和8080进行修改<br>接着在atlassian-jira-6.3.6-standalone文件同目录下创建一个文件夹：jira_home，修改配置文件<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties</div></pre></td></tr></table></figure></p>
-<p>修改为如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jira.home = /home/jira/jira_home</div></pre></td></tr></table></figure></p>
-<p>启动jira服务：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>11.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysql -u root -p</div></pre></td></tr></table></figure></p>
-<p>默认无密码<br>创建数据库jiradb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database jiradb character set gbk;</div></pre></td></tr></table></figure></p>
-<p>创建用户并赋予权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create user jirauser identified by &apos;password&apos;;</div><div class="line"></div><div class="line">&gt; GRANT ALL ON jiradb.* TO &apos;jirauser&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; with grant option;</div><div class="line"></div><div class="line">&gt; flush privileges;</div></pre></td></tr></table></figure></p>
-<p>12.在JIRA的数据目录下删除文件：dbconfig.xml,删除这个文件再重启jira后就可以重新看到初始配置界面，这里可不执行这一步~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># rm -f /home/lijingdong/jira/jira_home/dbconfig.xml</div></pre></td></tr></table></figure></p>
-<p>13.重新启动JIRA服务<br>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/shutdown.sh</div></pre></td></tr></table></figure></p>
-<p>14.记下容器ID,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ exit 退出容器</div></pre></td></tr></table></figure></p>
-<p>15.docker commit 命令创建新镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker commit containerID centos6/jira:1.0</div></pre></td></tr></table></figure></p>
-<p>注意，如果不commit创建新镜像，之前的修改就都没了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images查看新创建的镜像：</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker5.png" alt=""><br>16.重启镜像，并将端口8099映射到主机的8099端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t -p 8099:8099 centos6/jira:1.0  /bin/bash</div></pre></td></tr></table></figure></p>
-<p>此时需重新启动mysql，重新source JAVA_HOME，重新启动jira：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div><div class="line"># source /etc/profile</div><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>然后打开0.0.0.0:8099即可看到jira</p>
-<p>17.jira破解:<br>将atlassian-universal-plugin-manager-plugin-2.17.13.jar复制到容器上/home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-<br>             INF/atlassian-bundled-plugins/下：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-universal-plugin-manager-plugin-2.17.13.jar containerID:/home/jira/atlassian-jira-</div><div class="line">  6.3.6-standalone/atlassian-jira/WEB-INF/atlassian-bundled-plugins/</div></pre></td></tr></table></figure></p>
-<p>将破解文件atlassian-extras-2.2.2.jar复制到容器上/home/lijingdong/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/lib/目录下替换同名文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-extras-2.2.2.jar containerID:/home/jira/atlassian-jira-6.3.6-standalone/atlassian-</div><div class="line">   jira/WEB-INF/lib</div></pre></td></tr></table></figure></p>
-<p>之后重启jira。<br>点击右上角齿轮形状的管理图标，选择“系统”，再选择“授权”，看到使用日期不到1个月，如下所示：<br><img src="/img/docker/docker6.png" alt=""><br><img src="/img/docker/docker7.png" alt=""><br>填写授权码，授权码参数范例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Description=JIRA: Commercial,</div><div class="line">CreationDate=你的安装日期，格式（yyyy-mm-dd）,</div><div class="line">jira.LicenseEdition=ENTERPRISE,</div><div class="line">Evaluation=false,</div><div class="line">jira.LicenseTypeName=COMMERCIAL,</div><div class="line">jira.active=true,</div><div class="line">licenseVersion=2,</div><div class="line">MaintenanceExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">Organisation=joiandjoin,</div><div class="line">SEN=你申请到的SEN注意没有前缀LID,</div><div class="line">ServerID=你申请到的ServerID,</div><div class="line">jira.NumberOfUsers=-1,</div><div class="line">LicenseID=LID你申请到的SEN，注意LID前缀不要丢掉,</div><div class="line">LicenseExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">PurchaseDate=你的安装日期，格式（yyyy-mm-dd）</div></pre></td></tr></table></figure></p>
-<p>破解完成:<br><img src="/img/docker/docker8.png" alt=""><br>18.docker容器跨服务器迁移：<br>    有<a href="http://www.jb51.net/article/104529.htm" target="_blank" rel="external">两种方法</a>，我们使用save方式:<br>备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  docker save centos6/jira:2.0 &gt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>使用scp命令将文件拷贝到远程服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp /Users/peanut/Documents/Data\ Study/centos6_jira.tar user@serverIP:/home/user</div></pre></td></tr></table></figure></p>
-<p>恢复：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker load &lt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>查看恢复的镜像：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jira</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">展开全文 >></a>
         </p>
       
 
@@ -1236,6 +1217,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">block-chain Coco</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">block-chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Coco</a>
               </li>
             
             <div class="clearfix"></div>
