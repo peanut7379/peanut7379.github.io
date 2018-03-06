@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/03/06/107.%20Binary%20Tree%20Level%20Order%20Traversal%20II/</loc>
-    <lastmod>2018-03-06T10:06:22.000Z</lastmod>
+    <lastmod>2018-03-06T15:02:31.000Z</lastmod>
     <data>
         <display>
         <title>107. Binary Tree Level Order Traversal II</title>
@@ -19,6 +19,28 @@
            
              
               <breadCrumb title="leetcode" url="http://yoursite.com/categories/leetcode/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/06/Java%E9%9B%86%E5%90%88%E5%B5%8C%E5%A5%97/</loc>
+    <lastmod>2018-03-06T14:59:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java集合嵌套</title>
+        <pubTime>2018-03-05T16:00:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>集合嵌套</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>

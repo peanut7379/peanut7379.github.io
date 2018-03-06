@@ -58,6 +58,8 @@
 	        
 				<li><a href="/categories/leetcode/">leetcode</a></li>
 	        
+				<li><a href="/categories/java/">java</a></li>
+	        
 				<li><a href="/categories/research/">科研</a></li>
 	        
 				<li><a href="/categories/economics/">经济学</a></li>
@@ -128,6 +130,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -150,17 +154,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/linux/">linux</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/linux/">linux</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/leetcode/">leetcode</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/leetcode/">leetcode</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/research/">科研</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/java/">java</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/economics/">经济学</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/research/">科研</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/think/">随笔</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/economics/">经济学</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/categories/think/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -176,6 +182,88 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Java集合嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/Java集合嵌套/">Java集合嵌套</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/Java集合嵌套/" class="archive-article-date">
+  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到这样返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于List是接口，不可直接实例化，也就是直接使用<code>List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;();</code>是错的</p>
+<p>但如果使用<code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code>又会报错（cannot convert from LinkedList<linkedlist<integer>&gt; to List<list<integer>&gt;）</list<integer></linkedlist<integer></p>
+<p>正确的做法是修改成：<br><code>List&lt;LinkedList&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code><br>或<br><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</code><br>这样才可以，也就是说，<font color="#ff0000">泛型的类型参数必须相同</font>。</p>
+<p>下面这种处理</p>
+<p><code>ArrayList&lt;ArrayList&lt;String&gt;&gt; list= new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</code><br>或<br><code>LinkedList&lt;LinkedList&lt;String&gt;&gt; list = new LinkedList&lt;LinkedList&lt;String&gt;&gt;();</code><br>也是可以的，这样就没有用接口类引用实现类了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/Java集合嵌套/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-107. Binary Tree Level Order Traversal II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -197,9 +285,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p>
-<p>For example:<br>Given binary tree [3,9,20,null,null,15,7],<br>    3<br>   / \<br>  9  20<br>    /  \<br>   15   7<br>return its bottom-up level order traversal as:<br>[<br>  [15,7],<br>  [9,20],<br>  [3]<br>]</p>
+        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Given a binary tree, return the bottom-up level order traversal of its nodes&apos; values. (ie, from left to right, level by level from leaf to root).</div><div class="line"></div><div class="line">For example:</div><div class="line">Given binary tree [3,9,20,null,null,15,7],</div><div class="line">    3</div><div class="line">   / \</div><div class="line">  9  20</div><div class="line">    /  \</div><div class="line">   15   7</div><div class="line">return its bottom-up level order traversal as:</div><div class="line">[</div><div class="line">  [15,7],</div><div class="line">  [9,20],</div><div class="line">  [3]</div><div class="line">]</div></pre></td></tr></table></figure>
 <h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>使用队列逐层遍历，存到res，不过这道题是反向存储，所以每层得到的List就存入res的起始位置，这样就倒序了<br>这里有两种集合可以实现插入起始位置：<br>若使用ArrayList，使用add(index,ArrayList)方法<br>若使用LinkedList，使用addFirst(ArrayList)方法</p>
+<p>PS:<br>这里遇到的一个问题就是返回值是List<list<integer>&gt;这样的集合嵌套形式，参见我的另一篇<code>Java集合嵌套</code>的笔记。</list<integer></p>
 <h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) &#123;</div><div class="line">        ArrayList&lt;List&lt;Integer&gt;&gt; res=<span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">        </div><div class="line">        LinkedList&lt;TreeNode&gt; queue=<span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</div><div class="line">        queue.add(root);</div><div class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</div><div class="line">        </div><div class="line">        ArrayList&lt;Integer&gt; middleList=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        TreeNode tmp=<span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</div><div class="line">            tmp=queue.poll();</div><div class="line">            count--;</div><div class="line">            middleList.add(tmp.val);</div><div class="line">            <span class="keyword">if</span>(tmp.left!=<span class="keyword">null</span>)&#123;</div><div class="line">                queue.add(tmp.left);</div><div class="line">                <span class="comment">//count++;</span></div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(tmp.right!=<span class="keyword">null</span>)&#123;</div><div class="line">                queue.add(tmp.right);</div><div class="line">                <span class="comment">//count++;</span></div><div class="line">            &#125;</div><div class="line">           <span class="keyword">if</span>(count==<span class="number">0</span>)&#123;</div><div class="line">                res.add(<span class="number">0</span>,middleList); <span class="comment">//insert one by one from the beginning</span></div><div class="line">                middleList=<span class="keyword">new</span> ArrayList&lt;Integer&gt;(); <span class="comment">//这里注意不能赋值为null</span></div><div class="line">                count=queue.size();</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
 
@@ -783,125 +871,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/04/30/Nginx发布网站/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-html+css笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/html+css笔记/">html+css笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/html+css笔记/" class="archive-article-date">
-  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Html"><a href="#Html" class="headerlink" title="Html:"></a><font color="#ff0000"><strong>Html:</strong></font></h2><p><code>&lt;b&gt;加粗</code><br><code>&lt;p&gt;段落</code></p>
-<h3 id="method-属性"><a href="#method-属性" class="headerlink" title="method 属性:"></a>method 属性:</h3><p>表单数据可以作为 URL 变量（method=”get”）或者 HTTP post （method=”post”）的方式来发送。</p>
-<p>浏览器使用 method 属性设置的方法将表单中的数据传送给服务器进行处理。共有两种方法：POST 方法和 GET 方法。</p>
-<p>如果采用 POST 方法，浏览器将会按照下面两步来发送数据。首先，浏览器将与 action 属性中指定的表单处理服务器建立联系，一旦建立连接之后，浏览器就会按分段传输的方法将数据发送给服务器。</p>
-<p>在服务器端，一旦 POST 样式的应用程序开始执行时，就应该从一个标志位置读取参数，而一旦读到参数，在应用程序能够使用这些表单值以前，必须对这些参数进行解码。用户特定的服务器会明确指定应用程序应该如何接受这些参数。</p>
-<p>另一种情况是采用 GET 方法，这时浏览器会与表单处理服务器建立连接，然后直接在一个传输步骤中发送所有的表单数据：浏览器会将数据直接附在表单的 action URL 之后。这两者之间用问号进行分隔。</p>
-<h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则:"></a>JSON语法规则:</h3><ul>
-<li>数据为键/值对</li>
-<li>数据由逗号隔开</li>
-<li>大括号保存对象</li>
-<li>方括号保存数组</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">函数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">JSON.parse()</td>
-<td style="text-align:left">将JSON字符串转为js对象</td>
-</tr>
-<tr>
-<td style="text-align:left">JSON.stringify()</td>
-<td style="text-align:left">将js值转为JSON字符串</td>
-</tr>
-</tbody>
-</table>
-<p>代码规范:<br>代码一行太长，建议在 运算符 或 逗号后换行</p>
-<p>变量声明时如果不使用<code>var</code>关键字，即使在函数内定义，也是全局变量。</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS:"></a><font color="#ff0000"><strong>CSS:</strong></font></h2><p>语法格式：<br>selector {declaration；declaration；}<br>declaration格式<br>属性：[attribute=value] （注意：中间不要留有空格）<br>Id选择器： 以<code>#</code>来定义<br>class选择器：以<code>.</code>来定义</p>
-<p>三种颜色定义方式：</p>
-<ul>
-<li>十六进制 #ff0000</li>
-<li>RGB rgb(255,0,0)</li>
-<li>颜色名称 red<br><a href="http://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="external">CSS参考手册</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/html+css笔记/">展开全文 >></a>
         </p>
       
 
