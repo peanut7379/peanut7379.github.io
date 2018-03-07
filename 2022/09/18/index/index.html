@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java集合嵌套 | Peanut&#39;s Home</title>
+  <title>Peanut&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="遇到这样返回值12345public class Solution &amp;#123;    public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; levelOrder(TreeNode root) &amp;#123;            &amp;#125;&amp;#125;
-由于List是接口，不可直接实例化，也就是直接使用List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; lis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java集合嵌套">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/Java集合嵌套/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Peanut's Home">
+<meta property="og:url" content="http://yoursite.com/2022/09/18/index/index.html">
 <meta property="og:site_name" content="Peanut's Home">
-<meta property="og:description" content="遇到这样返回值12345public class Solution &amp;#123;    public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; levelOrder(TreeNode root) &amp;#123;            &amp;#125;&amp;#125;
-由于List是接口，不可直接实例化，也就是直接使用List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; lis">
-<meta property="og:updated_time" content="2018-03-06T14:59:24.000Z">
+<meta property="og:image" content="http://yoursite.com/img/timg.jpeg">
+<meta property="og:updated_time" content="2018-03-06T15:25:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java集合嵌套">
-<meta name="twitter:description" content="遇到这样返回值12345public class Solution &amp;#123;    public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; levelOrder(TreeNode root) &amp;#123;            &amp;#125;&amp;#125;
-由于List是接口，不可直接实例化，也就是直接使用List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; lis">
+<meta name="twitter:title" content="Peanut's Home">
+<meta name="twitter:image" content="http://yoursite.com/img/timg.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Peanut&#39;s Home" type="application/atom+xml">
   
@@ -188,32 +184,12 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java集合嵌套" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-index" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java集合嵌套
-    </h1>
-  
-
-        
-        <a href="/2018/03/06/Java集合嵌套/" class="archive-article-date">
-  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到这样返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>由于List是接口，不可直接实例化，也就是直接使用<code>List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;();</code>是错的</p>
-<p>但如果使用<code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code>又会报错（cannot convert from LinkedList<linkedlist<integer>&gt; to List<list<integer>&gt;）</list<integer></linkedlist<integer></p>
-<p>正确的做法是修改成：<br><code>List&lt;LinkedList&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code><br>或<br><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</code><br>这样才可以，也就是说，<font color="#ff0000">泛型的类型参数必须相同</font>。</p>
-<p>下面这种处理</p>
-<p><code>ArrayList&lt;ArrayList&lt;String&gt;&gt; list= new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</code><br>或<br><code>LinkedList&lt;LinkedList&lt;String&gt;&gt; list = new LinkedList&lt;LinkedList&lt;String&gt;&gt;();</code><br>也是可以的，这样就没有用接口类引用实现类了。</p>
+        <p><img src="/img/timg.jpeg" alt=""></p>
 
       
 
@@ -222,33 +198,7 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -298,7 +248,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/06/Java集合嵌套/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2022/09/18/index/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +262,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/18/index/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/06/107. Binary Tree Level Order Traversal II/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">107. Binary Tree Level Order Traversal II</div>
+    <a href="/2018/03/06/Java集合嵌套/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合嵌套</div>
       <i class="icon-circle-right"></i>
     </a>
   
