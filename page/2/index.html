@@ -183,6 +183,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-微软Coco Framework翻译学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/16/微软Coco Framework翻译学习/">微软Coco Framework翻译学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/16/微软Coco Framework翻译学习/" class="archive-article-date">
+  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>区块链是一种转型技术，有潜力将数字化转型扩展到公司four walls之外，并进入与供应商，客户和合作伙伴共享的过程。越来越多的企业正在投资区块链，作为一种安全透明的方式，以数字方式跟踪跨越信任边界的资产所有权，并就共享业务流程进行写作，为跨组织协作和富有想象力的新业务模式开创新机遇。</p>
+<p>微软致力于为企业提供区块链，并与客户，合作伙伴和区块链社区合作，继续推进企业就绪。我们的使命是通过提供开放，可扩展的平台和服务，帮助企业在这个安全的多方计算的新时代蓬勃发展，任何公司从分类账初创企业到零售商到健康提供商到全球银行都可以用它来改善共享业务流程。</p>
+<p>随着企业利用区块链技术来满足其业务需求，他们已经意识到许多现有的区块链协议不能满足关键的企业需求，如性能，机密性，治理和所需的处理能力。这是因为现有的系统被设计来在公开场景最大透明地以匿名，不可信任的角色来实现功能并达成共识。正因为如此，交易被明确地张贴出来供所有人来看，网络中的每个节点都执行每一个交易，并且必须采用计算密集型的共识算法。这些安全措施，虽然是确保公共区块链网络完整所必须的，但会根据重要的企业需求（如可扩展性和机密性）方面进行权衡。</p>
+<p>为了适应现有的公共区块链协议或者为了满足这些需求创建新的协议，通常将一个required企业属性交换为另一个，例如以更高的复杂度或更低的性能为代价改进机密性。<br>促进企业区块链采用</p>
+<p>今天我很高兴介绍Coco框架，一个开源系统，能够满足所有关键企业需求的高规模，机密的区块链网络，为加快生产企业采用区块链技术提供了一种手段。</p>
+<p>Coco通过专门为保密联盟设计来实现这一点，在这些联盟中，节点和角色被明确声明和控制。基于这些需求，Coco 提出一种可替代的方法来构建分类账(ledger)，为企业提供所需的可扩展性，分布式治理和增强的机密性，同时又不牺牲固有的安全性和不变性。</p>
+<p>利用现有的区块链协议，可靠执行环节（TEEs）例如Intel SGX and Windows Virtual Secure Mode (VSM)，分布式系统和加密技术，Coco可实现企业就绪区块链网络：</p>
+<ul>
+<li>吞吐量和延迟接近数据库速度</li>
+<li>更丰富，更灵活的特定业务机密模型</li>
+<li>通过分布式治理来实现网络策略管理</li>
+<li>支持非确定性交易</li>
+</ul>
+<p>通过提高这些功能，Coco提供了一个现有的区块链协议可以集成到一起的可信任的基础，来提供完整的企业级分类账（ledger）解决方案，为各行业开放广阔的，高规模的应用场景，进一步提升区块链的数字化转型业务的能力。</p>
+<p>我们已经开始探索Coco在各行业的潜力，包括零售，供应链和金融服务。</p>
+<pre><code>“在Coco框架内运行我们现在的供应链Dapp代码能够更快，这是一个巨大的性能改进，当我们和零售客户谈论企业区块链就绪时，这将减少很多摩擦。在不牺牲这种改进的情况下增加数据的机密性支持，能够引导我们用智能供应链设想的数字化转型。”
+                 - Tom Racette, Vice President, Global Retail Business Development, Mojix
+</code></pre><p>无论客户是设计一个端到端的贸易金融解决方案，利用区块链来确保边缘安全，还是利用企业智能合约来提高办公效率，Coco都能够满足他们的企业需求。微软是唯一一个提供跨 本地和公有云一致性的云服务商，同时为广大的应用程序提供访问丰富的Azure生态系统，这些应用将被构建在区块链之上作为共享的数据层。</p>
+<p>一个open approach</p>
+<p>按照设计，Coco是开放的，并且兼容任何区块链协议。微软已经开始将Ethereum整合到Coco中，我们很高兴地宣布J.P. Morgan Chase, Intel and R3已经分别致力于整合enterprise ledgers, Quorum, Hyperledger Sawtooth and Corda。这仅仅是一个开始，我们期待在不久的将来与其他ledgers探索整合机会。</p>
+<pre><code>“微软的Coco框架代表了实现高度可扩展的，机密的，以太坊或其他区块链网络的突破，这些区块链网络将成为新兴世界多种互联区块链系统的重要组成部分”。
+                                        - Joseph Lubin, Founder of ConsenSys
+</code></pre><p>我相信Coco只能从当今推动区块链创新的多元化和有才华的开源社区中受益。虽然Coco最初是Azure和微软研究院之间的合作，但已经从数十位客户和合作伙伴的投入中受益。开放Coco是一种扩展开发的方式，远超出我们最初工作组的范围和想象，我们的目的是在2018年初向社区贡献代码。</p>
+<p>Coco将通过设计和任何ledger协议兼容，并且可以在任何支持兼容TEE的云协议，操作系统和管理程序上运行。我们正在建立这种灵活性，让社区能够将Coco和其他协议集成在一起，在其他硬件上尝试，并将其应用在我们还没想到的企业场景中。</p>
+<p>行业对区块链的热情正在增长，虽然区块链还需要时间来实现企业保障，但我们仍然将激光聚焦于与社区合作来加速其发展和企业采用。</p>
+<p>要了解有关Coco的更多信息，您可以阅读我们的技术白皮书，并在MSCloud Youtube页面上观看我的demo，请务必在GitHub上star and follow the project，以跟上工作组的进展并接收有关最新进展的通知！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block-chain</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Coco</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/economics/" class="article-tag-list-link color5">economics</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/16/微软Coco Framework翻译学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Nginx发布网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1001,115 +1103,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/18/w3m文字浏览器基本操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-bash命令行处理步骤及源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/bash命令行处理步骤及源码解析/">bash命令行处理步骤及源码解析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/16/bash命令行处理步骤及源码解析/" class="archive-article-date">
-  	<time datetime="2017-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在执行脚本时发现一个问题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cat a.sh</div><div class="line">#!/bin/bash</div><div class="line">OPTS=&quot;--conf javaOption=\&quot;-Da=b -Dc=d\&quot;&quot;</div><div class="line">eval ./c.sh $OPTS</div><div class="line">./c.sh $OPTS</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ cat c.sh</div><div class="line">#!/bin/bash</div><div class="line">n=$#</div><div class="line">for ((i=0; i&lt;n; i++));do</div><div class="line">        echo &quot;$i:&#123;&quot;$1&quot;&#125;&quot;</div><div class="line">        shift</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>对于加eval和不加eval处理的./c.sh $OPTS命令结果是不一样的，而且直接的./c.sh $OPTS得出的并不是我们想要的结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">一、eval ./c.sh $OPTS</div><div class="line">结果：</div><div class="line">0:&#123;--conf&#125;</div><div class="line">1:&#123;javaOption=-Da=b -Dc=d&#125;</div><div class="line">二、./c.sh $OPTS</div><div class="line">结果：</div><div class="line">0:&#123;--conf&#125;</div><div class="line">1:&#123;javaOption=&quot;-Da=b&#125;</div><div class="line">2:&#123;-Dc=d&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>为了说明这个问题，我研究了一下bash命令行处理的流程，为什么会出现这种差别，以下分为两步来说明：<br>（1）说明bash命令行处理流程；<br>（2）使用grep命令+log打印+gdb+xcode来重新调试源码，从源码里解释流程。<br>在这里贴出<a href="https://ftp.gnu.org/gnu/bash/" target="_blank" rel="external">官方源码下载地址</a>，此处我使用的版本是bash4.4</p>
-<p>首先来说一下bash命令行处理流程，分为12步，来自《学习bash》这本书中，流程图如下：<br><img src="/img/bash流程.png" alt="bash命令行处理流程"><br>对于一行bash命令的执行流程分为两大步骤：解析和执行。</p>
-<p>解析的作用是获得用于执行的命令结构体：COMMAND *global_command<br>执行主要是针对特定类型的命令进行执行和结果处理，我们主要看解析过程。</p>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>bash的入口函数main()位于文件shell.c中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">int</div><div class="line">main (argc, argv, env)</div><div class="line">     int argc;</div><div class="line">     char **argv, **env;</div><div class="line">&#123;</div><div class="line">    ....</div><div class="line">    shell_initialize ();</div><div class="line">    ....</div><div class="line">    run_startup_files ();</div><div class="line">    ....</div><div class="line">    shell_initialized = 1;</div><div class="line"></div><div class="line">    /* Read commands until exit condition. */</div><div class="line">    reader_loop ();</div><div class="line">    exit_shell (last_command_exit_value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>main函数前部分主要做初始化工作，初始化完成之后，进入eval.c中的交互循环函数reader_loop()（shell.c中799行）。该函数不断读取和执行命令，直到遇到EOF。<br>此时函数调用关系为：main()–&gt;reader_loop()。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/* Read and execute commands until EOF is reached.  This assumes that</div><div class="line">   the input source has already been initialized. */</div><div class="line">int</div><div class="line">reader_loop ()</div><div class="line">&#123;</div><div class="line">    ....</div><div class="line">    if (read_command () == 0)</div><div class="line">    &#123;</div><div class="line">      ....</div><div class="line">    &#125;</div><div class="line">    else if (current_command = global_command)</div><div class="line">    &#123;</div><div class="line">      ....</div><div class="line">      execute_command (current_command);</div><div class="line">    &#125;</div><div class="line">    ....</div><div class="line">    return (last_command_exit_value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>reader_loop()函数中调用read_command()取得命令结构体global_command，然后赋值给current_command并交给execute_command ()去执行。</p>
-<p>read_command ()调用parse_command ()，此时函数调用关系为：main()–&gt;reader_loop()–&gt;read_command()–&gt;parse_command()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">/* Read and parse a command, returning the status of the parse.  The command</div><div class="line">  is left in the globval variable GLOBAL_COMMAND for use by reader_loop.</div><div class="line">  This is where the shell timeout code is executed. */</div><div class="line">int</div><div class="line">read_command ()</div><div class="line">&#123;</div><div class="line">    ....</div><div class="line">    result = parse_command ();</div><div class="line">    ....</div><div class="line">    return (result);</div><div class="line">&#125;</div><div class="line">....</div><div class="line">/* Call the YACC-generated parser and return the status of the parse.</div><div class="line">  Input is read from the current input stream (bash_input).  yyparse</div><div class="line">  leaves the parsed command in the global variable GLOBAL_COMMAND.</div><div class="line">  This is where PROMPT_COMMAND is executed. */</div><div class="line">int</div><div class="line">parse_command ()</div><div class="line">&#123;</div><div class="line">    ....</div><div class="line">    r = yyparse ();</div><div class="line"></div><div class="line">    if (need_here_doc)</div><div class="line">      gather_here_documents ();</div><div class="line"></div><div class="line">    return (r);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>parse_command()调用y.tab.c中的yyparse ()函数，并使用函数gather_here_documents ()处理here document类型的输入重定向。</p>
-<p>yyparse ()由YACC通过parse.y生成，函数内使用大量的goto语句，可读性较差：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">int</div><div class="line">yyparse ()</div><div class="line">&#123;</div><div class="line">    ....</div><div class="line">    yychar = YYLEX;</div><div class="line">    ....</div><div class="line">    yytoken = YYTRANSLATE (yychar);</div><div class="line">    ....</div><div class="line">    yyn += yytoken;</div><div class="line">    ....</div><div class="line">    switch (yyn)</div><div class="line">    &#123;</div><div class="line">      case 2:</div><div class="line">        &#123;</div><div class="line">        global_command = (yyvsp[(1) - (2)].command);</div><div class="line">        ....</div><div class="line">        &#125;</div><div class="line">        break;</div><div class="line">      case 3:</div><div class="line">        &#123;</div><div class="line">        global_command = (COMMAND *)NULL;</div><div class="line">        ....</div><div class="line">        &#125;</div><div class="line">        break;</div><div class="line">      ....</div><div class="line">      case 6:</div><div class="line">        &#123; (yyval.word_list) = make_word_list ((yyvsp[(1) - (1)].word), (WORD_LIST *)NULL); &#125;</div><div class="line">        break;</div><div class="line">      ....</div><div class="line">      default: break;</div><div class="line">    &#125;</div><div class="line">    ....</div><div class="line">    return YYID (yyresult);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>函数内调用yylex()(宏定义：#define YYLEX yylex ())来获得并计算出整型变量yyn的值，然后根据不同的yyn值获取具体的命令结构体。</p>
-<p>在函数yylex()内部，调用read_token()获得各种类型的token并进一步调用read_token_word()获取具体的不同类型的单词结构WORD_DESC。</p>
-<p>之后在yyparse()中，调用文件make_cmd.c中各种函数，根据yylex()获得的各种token和word组装成具体command。</p>
-<p>此时的函数调用关系为：</p>
-<p>main()–&gt;reader_loop()–&gt;read_command()–&gt;parse_command()–&gt;yyparse()–&gt;yylex()–&gt;read_token()——&gt;read_token_word()————&gt;global_command</p>
-<p>下边来举个例子例1，这是我在下载的bash源码中添加了printf编译后的一个简单命令执行的输出，其中的每个名词都是源码里的函数名，如果需要找到所在文件，我们可以使用grep命令，例如grep -n “reader_loop” *(其中-n代表标出所在行数，*代表在该文件夹下的所有文件中查找,更详细的grep用法大家可以查看linux shell编程指南)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">$ cat <span class="built_in">test</span>1.sh</div><div class="line">./c.sh --conf javaOption=<span class="string">"-Da=b -Dc=d"</span></div><div class="line">$ ../bash-4.4/bash <span class="built_in">test</span>1.sh</div><div class="line">reader_loop</div><div class="line">read_command</div><div class="line">parse_command</div><div class="line">yyparse</div><div class="line">Starting parse</div><div class="line">[Function]read_token</div><div class="line">reserved_word_acceptable</div><div class="line">CHECK_FOR_RESERVED_WORD</div><div class="line">reserved_word_acceptable</div><div class="line">reserved_word_acceptable</div><div class="line">[Function]read_token</div><div class="line">reserved_word_acceptable</div><div class="line">CHECK_FOR_RESERVED_WORD</div><div class="line">reserved_word_acceptable</div><div class="line">reserved_word_acceptable</div><div class="line">[Function]read_token</div><div class="line">reserved_word_acceptable</div><div class="line">CHECK_FOR_RESERVED_WORD</div><div class="line">reserved_word_acceptable</div><div class="line">reserved_word_acceptable</div><div class="line">[Function]read_token</div><div class="line">expand_words</div><div class="line">brace_expansion //大括号扩展</div><div class="line">shell_expand_word_list  //5-8步</div><div class="line">string_extract_double_quoted //双引号处理</div><div class="line">-Da=b -Dc=d</div><div class="line">dequote_string</div><div class="line">-Da=b -Dc=d</div><div class="line">quote_string</div><div class="line">dequote_string</div><div class="line">dequote_string</div><div class="line">dequote_string</div><div class="line">0:&#123;--conf&#125;</div><div class="line">1:&#123;javaOption=-Da=b -Dc=d&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>上边的输出基本对应12步处理流程，接下来我们具体深入分析：</strong></p>
-<p><strong>首先看两个执行结果：</strong></p>
-<p>脚本内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OPTS=&quot;--conf javaOption=\&quot;-Da=b -Dc=d\&quot;&quot;</div><div class="line">./c.sh $OPTS</div></pre></td></tr></table></figure></p>
-<p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">0:&#123;--conf&#125;</div><div class="line">1:&#123;javaOption=&quot;-Da=b&#125;</div><div class="line">2:&#123;-Dc=d&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>脚本内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./c.sh --conf javaOption=&quot;-Da=b -Dc=d&quot;</div></pre></td></tr></table></figure>
-<p>执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">0:&#123;--conf&#125;</div><div class="line">1:&#123;javaOption=-Da=b -Dc=d&#125;</div></pre></td></tr></table></figure>
-<p>这里第一个脚本未对双引号进行处理，为什么呢？<br>出现这种不同，主要是在于命令行处理流程中对于双引号的处理位置。在命令行处理流程中,位于subst.c文件9017（大约位置，因为加log信息后有变）处的函数 expand_word_internal()是处理从第五步波浪号扩展到第八步算术替换的核心函数，而实际对于双引号的处理是在与这几步变换并列的一个switch语句里，bash在处理完$相关的扩展之后会直接跳出switch，所以就跳过了关于双引号的处理，也就是说switch语句里case的顺序是$符号的相关扩展在前，双引号处理的在后。<br>至于我是如何找到的呢，在这里也贴出来供大家参考，少走弯路：<br>在例1中我们可以看到根据log信息我们已经发现了双引号处理的函数是string_extract_double_quoted，那么我们接下来要做的就是找到string_extract_double_quoted()函数是如何从read_loop()函数一路被调用的，所以现在我们使用gdb,调试命令如下：(当前我们在bash-4.4文件夹下，a.sh相对路径bash-4.4/task/a.sh)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">[task]$ cat a.sh</div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">./task/c.sh --conf javaOption=<span class="string">"-Da=b -Dc=d"</span></div><div class="line">[task]$ <span class="built_in">cd</span> ..</div><div class="line">[bash-4.4]$ gdb bash//此时进入到gdb调试模式下</div><div class="line">(gdb) b subst.c:841 //在subst.c的841行添加断点，也就是string_extract_double_quoted()函数所在的位置</div><div class="line">Breakpoint 1 at 0x453f91: file subst.c, line 841. </div><div class="line">(gdb) r task/a.sh //运行a.sh</div><div class="line">Starting program: /home/lijingdong/task/bash-4.4/bash task/a.sh</div><div class="line"></div><div class="line">Breakpoint 1, string_extract_double_quoted (</div><div class="line">    string=0x720b08 <span class="string">"javaOption=\"-Da=b -Dc=d\""</span>, sindex=0x7fffffffdf7c,</div><div class="line">    flags=&lt;value optimized out&gt;) at subst.c:841</div><div class="line">841	string_extract_double_quoted (string, sindex, flags)</div><div class="line">Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.166.el6_7.7.x86_64</div><div class="line">(gdb) bt</div><div class="line"><span class="comment">#0  string_extract_double_quoted (    </span></div><div class="line">    string=0x720b08 <span class="string">"javaOption=\"-Da=b -Dc=d\""</span>, sindex=0x7fffffffdf7c,</div><div class="line">    flags=&lt;value optimized out&gt;) at subst.c:841 //在这里我们就可以看到函数的调用次序了，是</div><div class="line">                                                //expand_word_internal函数直接调用了str</div><div class="line">                                                //ing_extract_double_quoted函数来进行双</div><div class="line">                                                //引号处理</div><div class="line"><span class="comment">#1  0x000000000045983f in expand_word_internal (word=0x720ae8, quoted=0,</span></div><div class="line">    isexp=0, contains_dollar_at=0x7fffffffe088,</div><div class="line">    expanded_something=0x7fffffffe08c) at subst.c:9443</div><div class="line"><span class="comment">#2  0x000000000045b29a in shell_expand_word_list (list=&lt;value optimized out&gt;,</span></div><div class="line">    eflags=31) at subst.c:10569</div><div class="line"><span class="comment">#3  expand_word_list_internal (list=&lt;value optimized out&gt;, eflags=31)</span></div><div class="line">    at subst.c:10692</div></pre></td></tr></table></figure></p>
-<p><strong>接下来我们只要用grep命令找到expand_word_internal函数进行具体分析即可：</strong></p>
-<p>在subst.c中添加的log信息如下：<br><img src="/img/subst_log1.png" alt="这里写图片描述"></p>
-<p><img src="/img/subst_log2.png" alt="这里写图片描述"></p>
-<p><img src="/img/subst_log3.png" alt="这里写图片描述"></p>
-<p>对于./c.sh $OPTS的执行过程中打印：<br>[DEBUG] word: ./c.sh<br>[DEBUG] word: $OPTS<br>[DEBUG]\$ begin substitute  //在这里执行\$OPTS的参数扩展<br>[DEBUG]\$ end substitute<br>之后直接跳出switch循环了。</p>
-<p>而对于./c.sh –conf javaOption=”-Da=b -Dc=d”的执行过程中打印：<br>[DEBUG] word: ./task/c.sh<br>[DEBUG] word: –conf<br>[DEBUG] word: javaOption=”-Da=b -Dc=d”<br>[DEBUG]double_quote processing //处理双引号<br>[DEBUG] word: -Da=b -Dc=d<br>Detaching after fork from child process 14855.<br>0:{–conf}<br>1:{javaOption=-Da=b -Dc=d}<br>&#8194;&#8194;&#8194;&#8194;在接下来的switch里边会处理到双引号，调用string_extract_double_quoted()函数将引号内字符串处理为一个整体。<br>&#8194;&#8194;&#8194;&#8194;写到这里也就差不多结束啦，bash源码的解读还有很多需要研究的地方，目前我还只是因为eval命令的原因研究了bash中关于双引号的处理，以此来作为一个引子，也给各位跟我一样的新手提供一个编译调试，解读源码的完整思路，如果大家有什么问题或者文中有什么错误，还请多多指正，多多交流~</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/16/bash命令行处理步骤及源码解析/">展开全文 >></a>
         </p>
       
 
