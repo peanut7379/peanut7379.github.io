@@ -219,6 +219,80 @@
 
 
   
+    <article id="post-389. Find the Difference" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/04/389. Find the Difference/">389. Find the Difference</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/04/389. Find the Difference/" class="archive-article-date">
+  	<time datetime="2018-10-04T13:23:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一般思路:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public static char findTheDifference(String s, String t) &#123;</div><div class="line">  int[] map = new int[26];</div><div class="line">  char c = 97;</div><div class="line">  for(int i=0;i&lt;s.length();i++)&#123;</div><div class="line">    map[s.charAt(i)-&apos;a&apos;]++;</div><div class="line">  &#125;</div><div class="line">  for(int j=0;j&lt;t.length();j++)&#123;</div><div class="line">    map[t.charAt(j)-&apos;a&apos;]--;</div><div class="line">    if(map[t.charAt(j)-&apos;a&apos;]==-1) return t.charAt(j);</div><div class="line">  &#125;</div><div class="line">  return c;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> 利用位异或:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public static char findTheDifference(String s, String t) &#123;</div><div class="line">    int len = s.length();</div><div class="line">    char c = t.charAt(len);</div><div class="line">    for (int i = 0; i &lt; len; i++) &#123;</div><div class="line">      c ^= s.charAt(i);</div><div class="line">      c ^= t.charAt(i);</div><div class="line">    &#125;</div><div class="line">    return c;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/leetcode/" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/04/389. Find the Difference/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-438. Find All Anagrams in a String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -864,86 +938,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/16/微软Coco Framework翻译学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx发布网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/30/Nginx发布网站/">Nginx发布网站</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/30/Nginx发布网站/" class="archive-article-date">
-  	<time datetime="2017-04-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>修改配置原理：<br>/etc/nginx/nginx.conf配置文件里的 http 配置区块里，用了一个 include 指令，把所有的在 /etc/nginx/conf.d 这个目录下面的 .conf 文件包含到了这里。<br>include /etc/nginx/conf.d/*.conf;<br>我们如果想去添加自己的配置，可以在/etc/nginx/conf.d 这个目录下新建一个以 .conf 结尾的文件，重新加载 nginx 以后，这些配置就会生效了。</p>
-<p>修改/etc/nginx/conf.d下default.conf配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80 default_server; #监听80端口</div><div class="line">    server_name  wuzhigang.com www.wuzhigang.com; #定义访问的域名</div><div class="line">    location / &#123;</div><div class="line">    root    /home/lijingdong/web; #网站的根目录位置</div><div class="line">    index 首页.html;   #定义首页索引文件名称</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>保存之后，sudo nginx -t测试配置文件语法是否正确，返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</div></pre></td></tr></table></figure></p>
-<p>然后service nginx reload重新加载nginx<br>配置好default.conf文件后,打开网址，显示403forbidden，是由于权限问题，修改nginx.conf文件下第一行为user root;即可</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/30/Nginx发布网站/">展开全文 >></a>
         </p>
       
 
