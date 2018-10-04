@@ -4,23 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2022/09/18/index/</loc>
-    <lastmod>2018-03-06T15:25:52.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2022-09-17T16:00:00.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/03/06/107.%20Binary%20Tree%20Level%20Order%20Traversal%20II/</loc>
-    <lastmod>2018-03-06T15:02:31.000Z</lastmod>
+    <lastmod>2018-10-04T13:17:13.000Z</lastmod>
     <data>
         <display>
         <title>107. Binary Tree Level Order Traversal II</title>
@@ -35,6 +20,21 @@
              
               <breadCrumb title="leetcode" url="http://yoursite.com/categories/leetcode/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2022/09/18/index/</loc>
+    <lastmod>2018-03-06T15:25:52.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2022-09-17T16:00:00.000Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
