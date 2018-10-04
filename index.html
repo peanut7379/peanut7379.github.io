@@ -219,32 +219,27 @@
 
 
   
-    <article id="post-Java集合嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-438. Find All Anagrams in a String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/Java集合嵌套/">Java集合嵌套</a>
+      <a class="article-title" href="/2018/10/04/438. Find All Anagrams in a String/">438. Find All Anagrams in a String</a>
     </h1>
   
 
         
-        <a href="/2018/03/06/Java集合嵌套/" class="archive-article-date">
-  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+        <a href="/2018/10/04/438. Find All Anagrams in a String/" class="archive-article-date">
+  	<time datetime="2018-10-04T13:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到这样返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>由于List是接口，不可直接实例化，也就是直接使用<code>List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;();</code>是错的</p>
-<p>但如果使用<code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code>又会报错（cannot convert from LinkedList<linkedlist<integer>&gt; to List<list<integer>&gt;）</list<integer></linkedlist<integer></p>
-<p>正确的做法是修改成：<br><code>List&lt;LinkedList&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code><br>或<br><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</code><br>这样才可以，也就是说，<font color="#ff0000">泛型的类型参数必须相同</font>。</p>
-<p>下面这种处理</p>
-<p><code>ArrayList&lt;ArrayList&lt;String&gt;&gt; list= new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</code><br>或<br><code>LinkedList&lt;LinkedList&lt;String&gt;&gt; list = new LinkedList&lt;LinkedList&lt;String&gt;&gt;();</code><br>也是可以的，这样就没有用接口类引用实现类了。</p>
+        <p>滑动窗口法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public static List&lt;Integer&gt; findAnagrams(String s, String p) &#123;</div><div class="line">    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</div><div class="line">    if (s.length() == 0 || p.length() == 0 || s.length() &lt; p.length()) &#123;</div><div class="line">      return res;</div><div class="line">    &#125;</div><div class="line">    int[] chars = new int[26];</div><div class="line">    for (int i = 0; i &lt; p.length(); i++) &#123;</div><div class="line">      chars[p.charAt(i) - &apos;a&apos;]++;</div><div class="line">    &#125;</div><div class="line">    int start = 0, end = 0, len = p.length(), diff = len;</div><div class="line">    while (end&lt;len)&#123;</div><div class="line">      chars[s.charAt(end)-&apos;a&apos;]--;</div><div class="line">      if(chars[s.charAt(end)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff--;</div><div class="line">      &#125;</div><div class="line">      end++;</div><div class="line">    &#125;</div><div class="line">    if(diff==0) res.add(0);</div><div class="line">    while(end&lt;s.length())&#123;</div><div class="line">      if(chars[s.charAt(start)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff++;</div><div class="line">      &#125;</div><div class="line">      chars[s.charAt(start)-&apos;a&apos;]++;</div><div class="line">      start++;</div><div class="line"></div><div class="line">      chars[s.charAt(end)-&apos;a&apos;]--;</div><div class="line">      if(chars[s.charAt(end)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff--;</div><div class="line">      &#125;</div><div class="line">      if(diff==0)</div><div class="line">        res.add(start);</div><div class="line">      end++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return res;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -260,10 +255,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -274,7 +265,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/leetcode/" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -283,7 +274,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/06/Java集合嵌套/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/10/04/438. Find All Anagrams in a String/">展开全文 >></a>
         </p>
       
 
@@ -363,6 +354,88 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/03/06/107. Binary Tree Level Order Traversal II/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java集合嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/Java集合嵌套/">Java集合嵌套</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/Java集合嵌套/" class="archive-article-date">
+  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到这样返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于List是接口，不可直接实例化，也就是直接使用<code>List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;();</code>是错的</p>
+<p>但如果使用<code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code>又会报错（cannot convert from LinkedList<linkedlist<integer>&gt; to List<list<integer>&gt;）</list<integer></linkedlist<integer></p>
+<p>正确的做法是修改成：<br><code>List&lt;LinkedList&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code><br>或<br><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</code><br>这样才可以，也就是说，<font color="#ff0000">泛型的类型参数必须相同</font>。</p>
+<p>下面这种处理</p>
+<p><code>ArrayList&lt;ArrayList&lt;String&gt;&gt; list= new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</code><br>或<br><code>LinkedList&lt;LinkedList&lt;String&gt;&gt; list = new LinkedList&lt;LinkedList&lt;String&gt;&gt;();</code><br>也是可以的，这样就没有用接口类引用实现类了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/Java集合嵌套/">展开全文 >></a>
         </p>
       
 
@@ -629,6 +702,83 @@
 
 
   
+    <article id="post-VPS调研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/16/VPS调研/">VPS调研</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/16/VPS调研/" class="archive-article-date">
+  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>比较：<br>1、 <a href="http://blog.csdn.net/zhang_zp2014/article/details/46822263" target="_blank" rel="external">http://blog.csdn.net/zhang_zp2014/article/details/46822263</a><br>2、搬瓦工与vultr及linode三家VPS服务商<br><a href="http://www.bawagon.com/bandwagonvultrlinode/" target="_blank" rel="external">http://www.bawagon.com/bandwagonvultrlinode/</a><br>首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好。因此追求性能的选择Vultr及Linode ,追求价格的可以选择搬瓦工VPS。</p>
+<p>Xen、OpenVZ、KVM三大VPS技术优劣势详解<br>基于KVM系统好，能保证内存<br><a href="http://vps.zzidc.com/vpsjishu/452.html" target="_blank" rel="external">http://vps.zzidc.com/vpsjishu/452.html</a></p>
+<p>VPS服务器全面性能测试：<br><a href="https://www.freehao123.com/vps-cpu-io-unixbench/" target="_blank" rel="external">https://www.freehao123.com/vps-cpu-io-unixbench/</a></p>
+<p>VPS主机的CPU详细参数:<br>$ cat /proc/cpuinfo<br>查看内存信息：<br>cat /proc/meminfo<br>测试硬盘读写速度：<br>sudo dd if=/dev/zero of=test bs=1M count=1024</p>
+<p>172.104.111.103<br>172.104.111.103<br>ssserver -p 8383 -k 201702 -m rc4-md5 -d start</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/16/VPS调研/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-微软Coco Framework翻译学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -731,83 +881,6 @@
 
 
   
-    <article id="post-VPS调研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/16/VPS调研/">VPS调研</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/16/VPS调研/" class="archive-article-date">
-  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>比较：<br>1、 <a href="http://blog.csdn.net/zhang_zp2014/article/details/46822263" target="_blank" rel="external">http://blog.csdn.net/zhang_zp2014/article/details/46822263</a><br>2、搬瓦工与vultr及linode三家VPS服务商<br><a href="http://www.bawagon.com/bandwagonvultrlinode/" target="_blank" rel="external">http://www.bawagon.com/bandwagonvultrlinode/</a><br>首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好。因此追求性能的选择Vultr及Linode ,追求价格的可以选择搬瓦工VPS。</p>
-<p>Xen、OpenVZ、KVM三大VPS技术优劣势详解<br>基于KVM系统好，能保证内存<br><a href="http://vps.zzidc.com/vpsjishu/452.html" target="_blank" rel="external">http://vps.zzidc.com/vpsjishu/452.html</a></p>
-<p>VPS服务器全面性能测试：<br><a href="https://www.freehao123.com/vps-cpu-io-unixbench/" target="_blank" rel="external">https://www.freehao123.com/vps-cpu-io-unixbench/</a></p>
-<p>VPS主机的CPU详细参数:<br>$ cat /proc/cpuinfo<br>查看内存信息：<br>cat /proc/meminfo<br>测试硬盘读写速度：<br>sudo dd if=/dev/zero of=test bs=1M count=1024</p>
-<p>172.104.111.103<br>172.104.111.103<br>ssserver -p 8383 -k 201702 -m rc4-md5 -d start</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/16/VPS调研/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-Nginx发布网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -888,141 +961,9 @@
 
 
   
-    <article id="post-Javascript笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/Javascript笔记/">Javascript笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/Javascript笔记/" class="archive-article-date">
-  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="外部调用"><a href="#外部调用" class="headerlink" title="外部调用:"></a>外部调用:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>myScript.js 文件代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123; <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"我的第一个 JavaScript 函数"</span>; &#125;</div></pre></td></tr></table></figure></p>
-<p>注：外部脚本不包含<code>&lt;script&gt;</code> 标签</p>
-<h3 id="输出：（4种方式）"><a href="#输出：（4种方式）" class="headerlink" title="输出：（4种方式）"></a>输出：（4种方式）</h3><p>1、 window.alert() 弹出警告框<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.alert(<span class="number">5</span> + <span class="number">6</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>2、 document.write() 方法将内容写到 HTML 文档中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;这是一个标题&lt;/h1&gt;"</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖</p>
-<p>3、使用 innerHTML 写入到 HTML 元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"My First JavaScript"</span>;</div></pre></td></tr></table></figure></p>
-<p>4、使用 console.log() 写入到浏览器的控制台<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(“string<span class="string">");</span></div></pre></td></tr></table></figure></p>
-<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量:"></a>定义变量:</h3><p><code>var name=&quot;Gates&quot;, age=56, job=&quot;CEO&quot;;</code><br>如果重新声明 JavaScript 变量，该变量的值不会丢失：</p>
-<p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：<br><code>var person={firstname:&quot;Bill&quot;, lastname:&quot;Gates&quot;, id:5566};</code><br>对象属性有两种寻址方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name=person.lastname;</div><div class="line">name=person[<span class="string">"lastname"</span>];</div></pre></td></tr></table></figure></p>
-<p><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我!&lt;/button&gt;</code></p>
-<p>使用 String 对象的 toUpperCase() 方法来把文本转换为大写：</p>
-<p>您会经常看到 document.getElementById(“some id”)。这个方法是 HTML DOM 中定义的。<br>DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function changeImage()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;img id="myimage" onclick="changeImage()"</div><div class="line">src="/images/pic_bulboff.gif" width="100" height="180"&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="改变-HTML-元素的样式"><a href="#改变-HTML-元素的样式" class="headerlink" title="改变 HTML 元素的样式:"></a>改变 HTML 元素的样式:</h3><p><code>x=document.getElementById(&quot;demo&quot;)</code> // 找到元素<br><code>x.style.color=&quot;#ff0000&quot;;</code>        // 改变样式</p>
-<h3 id="获取输入框内容："><a href="#获取输入框内容：" class="headerlink" title="获取输入框内容："></a>获取输入框内容：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id="demo" type="text”&gt; //输入框创建</div><div class="line">var x=document.getElementById("demo").value;</div></pre></td></tr></table></figure>
-<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//单行</div><div class="line">/*多行</div><div class="line">*/</div></pre></td></tr></table></figure>
-<p>JavaScript 对大小写是敏感的</p>
-<h3 id="对代码行进行折行："><a href="#对代码行进行折行：" class="headerlink" title="对代码行进行折行："></a>对代码行进行折行：</h3><p>您可以在文本字符串中使用反斜杠对代码行进行换行。下面的例子会正确地显示：<br><code>document.write(&quot;你好 \</code><br><code>世界!&quot;);</code><br>不过，您不能像这样折行：<br><code>document.write \</code><br><code>(&quot;你好世界!&quot;);</code></p>
-<p>常见的HTML事件的列表:</p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>onchange</td>
-<td style="text-align:left">HTML 元素改变</td>
-</tr>
-<tr>
-<td>onclick</td>
-<td style="text-align:left">用户点击 HTML 元素</td>
-</tr>
-<tr>
-<td>onmouseover</td>
-<td style="text-align:left">用户在一个HTML元素上移动鼠标</td>
-</tr>
-<tr>
-<td>onmouseout</td>
-<td style="text-align:left">用户从一个HTML元素上移开鼠标</td>
-</tr>
-<tr>
-<td>onkeydown</td>
-<td style="text-align:left">用户按下键盘按键</td>
-</tr>
-<tr>
-<td>onload</td>
-<td style="text-align:left">浏览器已完成页面的加载</td>
-</tr>
-</tbody>
-</table>
-<h3 id="基于某些条件对变量进行赋值"><a href="#基于某些条件对变量进行赋值" class="headerlink" title="基于某些条件对变量进行赋值:"></a>基于某些条件对变量进行赋值:</h3><p><code>variablename=(condition)?value1:value2</code><br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">voteable=(age&lt;<span class="number">18</span>)?<span class="string">"年龄太小"</span>:<span class="string">"年龄已达到"</span>;</div><div class="line">time 当前<span class="number">24</span>小时制整点数字 例如<span class="number">2</span> <span class="number">15</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (condition1)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (condition2)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="改变HTML内容："><a href="#改变HTML内容：" class="headerlink" title="改变HTML内容："></a>改变HTML内容：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通过id查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"></div><div class="line">通过标签名查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"><span class="keyword">var</span> y=x.getElementsByTagName(<span class="string">"p"</span>);</div><div class="line"></div><div class="line">通过类名查找 HTML 元素:</div><div class="line">x=<span class="built_in">document</span>.getElementsByClassName(<span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
-<h3 id="改变HTML属性："><a href="#改变HTML属性：" class="headerlink" title="改变HTML属性："></a>改变HTML属性：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).属性标签=新属性值</div></pre></td></tr></table></figure>
-<h3 id="改变HTML样式："><a href="#改变HTML样式：" class="headerlink" title="改变HTML样式："></a>改变HTML样式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).style.property=新样式</div><div class="line">例如：</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>).style.color=<span class="string">"blue"</span>;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/Javascript笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
