@@ -183,6 +183,563 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Javascript笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/16/Javascript笔记/">Javascript笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/16/Javascript笔记/" class="archive-article-date">
+  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="外部调用"><a href="#外部调用" class="headerlink" title="外部调用:"></a>外部调用:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>myScript.js 文件代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123; <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"我的第一个 JavaScript 函数"</span>; &#125;</div></pre></td></tr></table></figure></p>
+<p>注：外部脚本不包含<code>&lt;script&gt;</code> 标签</p>
+<h3 id="输出：（4种方式）"><a href="#输出：（4种方式）" class="headerlink" title="输出：（4种方式）"></a>输出：（4种方式）</h3><p>1、 window.alert() 弹出警告框<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.alert(<span class="number">5</span> + <span class="number">6</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>2、 document.write() 方法将内容写到 HTML 文档中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;这是一个标题&lt;/h1&gt;"</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖</p>
+<p>3、使用 innerHTML 写入到 HTML 元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"My First JavaScript"</span>;</div></pre></td></tr></table></figure></p>
+<p>4、使用 console.log() 写入到浏览器的控制台<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(“string<span class="string">");</span></div></pre></td></tr></table></figure></p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量:"></a>定义变量:</h3><p><code>var name=&quot;Gates&quot;, age=56, job=&quot;CEO&quot;;</code><br>如果重新声明 JavaScript 变量，该变量的值不会丢失：</p>
+<p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：<br><code>var person={firstname:&quot;Bill&quot;, lastname:&quot;Gates&quot;, id:5566};</code><br>对象属性有两种寻址方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name=person.lastname;</div><div class="line">name=person[<span class="string">"lastname"</span>];</div></pre></td></tr></table></figure></p>
+<p><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我!&lt;/button&gt;</code></p>
+<p>使用 String 对象的 toUpperCase() 方法来把文本转换为大写：</p>
+<p>您会经常看到 document.getElementById(“some id”)。这个方法是 HTML DOM 中定义的。<br>DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function changeImage()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;img id="myimage" onclick="changeImage()"</div><div class="line">src="/images/pic_bulboff.gif" width="100" height="180"&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="改变-HTML-元素的样式"><a href="#改变-HTML-元素的样式" class="headerlink" title="改变 HTML 元素的样式:"></a>改变 HTML 元素的样式:</h3><p><code>x=document.getElementById(&quot;demo&quot;)</code> // 找到元素<br><code>x.style.color=&quot;#ff0000&quot;;</code>        // 改变样式</p>
+<h3 id="获取输入框内容："><a href="#获取输入框内容：" class="headerlink" title="获取输入框内容："></a>获取输入框内容：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id="demo" type="text”&gt; //输入框创建</div><div class="line">var x=document.getElementById("demo").value;</div></pre></td></tr></table></figure>
+<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//单行</div><div class="line">/*多行</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>JavaScript 对大小写是敏感的</p>
+<h3 id="对代码行进行折行："><a href="#对代码行进行折行：" class="headerlink" title="对代码行进行折行："></a>对代码行进行折行：</h3><p>您可以在文本字符串中使用反斜杠对代码行进行换行。下面的例子会正确地显示：<br><code>document.write(&quot;你好 \</code><br><code>世界!&quot;);</code><br>不过，您不能像这样折行：<br><code>document.write \</code><br><code>(&quot;你好世界!&quot;);</code></p>
+<p>常见的HTML事件的列表:</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onchange</td>
+<td style="text-align:left">HTML 元素改变</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td style="text-align:left">用户点击 HTML 元素</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td style="text-align:left">用户在一个HTML元素上移动鼠标</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td style="text-align:left">用户从一个HTML元素上移开鼠标</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td style="text-align:left">用户按下键盘按键</td>
+</tr>
+<tr>
+<td>onload</td>
+<td style="text-align:left">浏览器已完成页面的加载</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基于某些条件对变量进行赋值"><a href="#基于某些条件对变量进行赋值" class="headerlink" title="基于某些条件对变量进行赋值:"></a>基于某些条件对变量进行赋值:</h3><p><code>variablename=(condition)?value1:value2</code><br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">voteable=(age&lt;<span class="number">18</span>)?<span class="string">"年龄太小"</span>:<span class="string">"年龄已达到"</span>;</div><div class="line">time 当前<span class="number">24</span>小时制整点数字 例如<span class="number">2</span> <span class="number">15</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (condition1)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (condition2)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="改变HTML内容："><a href="#改变HTML内容：" class="headerlink" title="改变HTML内容："></a>改变HTML内容：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通过id查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"></div><div class="line">通过标签名查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"><span class="keyword">var</span> y=x.getElementsByTagName(<span class="string">"p"</span>);</div><div class="line"></div><div class="line">通过类名查找 HTML 元素:</div><div class="line">x=<span class="built_in">document</span>.getElementsByClassName(<span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
+<h3 id="改变HTML属性："><a href="#改变HTML属性：" class="headerlink" title="改变HTML属性："></a>改变HTML属性：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).属性标签=新属性值</div></pre></td></tr></table></figure>
+<h3 id="改变HTML样式："><a href="#改变HTML样式：" class="headerlink" title="改变HTML样式："></a>改变HTML样式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).style.property=新样式</div><div class="line">例如：</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>).style.color=<span class="string">"blue"</span>;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/16/Javascript笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-dockerStudy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/15/dockerStudy/">docker学习整理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/15/dockerStudy/" class="archive-article-date">
+  	<time datetime="2017-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker info ：查看系统(docker)层面信息，包括管理的images, containers数等</div></pre></td></tr></table></figure>
+<p>查找镜像，可做模糊搜索<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search &lt;image&gt;：在docker index中搜索image</div></pre></td></tr></table></figure></p>
+<p>下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull &lt;image&gt; ：从docker registry server 中下拉image</div></pre></td></tr></table></figure></p>
+<p>查看镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker images： 列出images</div><div class="line">docker images -a ：列出所有的images（包含历史）</div></pre></td></tr></table></figure></p>
+<p>删除镜像或容器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker rmi  &lt;image ID&gt;： 删除一个或多个image</div><div class="line">docker rm  &lt;container ID&gt;： 删除一个或多个container</div><div class="line">docker rm `docker ps -a -q` ：删除所有的container</div><div class="line">docker ps -a -q | xargs docker rm ：同上, 删除所有的container</div></pre></td></tr></table></figure></p>
+<p>使用镜像创建容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">docker run [options] [image]</div><div class="line">options:</div><div class="line">-d 以后台方式运行</div><div class="line">-p 指定端口映射 </div><div class="line">-p &lt;host_port:contain_port&gt;</div><div class="line">docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">-i -t 一般同时使用，在新容器内指定一个伪终端或终端，并允许进行交互</div><div class="line">docker run -i -t centos:6.9 /bin/bash :使用镜像centos:6.9创建container并进入交互模式, login shell是/bin/bash</div></pre></td></tr></table></figure></p>
+<p>查看容器:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker ps ：列出当前所有正在运行的container</div><div class="line">docker ps -l ：列出最近一次启动的container</div><div class="line">docker ps -a ：列出所有的container（包含历史，即运行过的container）</div><div class="line">docker ps -q ：列出最近一次运行的container ID</div></pre></td></tr></table></figure></p>
+<p>开启/停止/重启/连接container:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker start/stop/restart &lt;container&gt; :注：使用start是启动已经创建过得container，使用run则通过image开启一个新的container。</div><div class="line">docker attach [container_id] ：连接一个正在运行的container实例（即实例必须为start状态，可以多个窗口同时attach一个container实例）</div></pre></td></tr></table></figure></p>
+<p>通过容器生成新的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker commit &lt;container&gt; [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选。</div></pre></td></tr></table></figure></p>
+<p>容器备份、恢复和迁移：<br>docker的备份方式有export和save两种。<br>export备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export是当前的状态，针对的是容器，docker save 是针对镜像images。</div><div class="line">  $ docker export [CONTAINER ID] &gt;export.tar  //export是把容器打成一个tar包。</div><div class="line">import恢复：</div><div class="line">  $ cat export.tar | docker import - repo:tag</div></pre></td></tr></table></figure></p>
+<p> save备份：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $  docker save repo:tag &gt;save.tar</div><div class="line">恢复镜像:</div><div class="line"> $  docker load &lt;save.tar</div><div class="line">对image打tag</div><div class="line">$ docker tag imageID repo:tag</div></pre></td></tr></table></figure></p>
+<p>两者的区别:</p>
+<p>导出后再导入(exported-imported)的镜像会丢失所有的历史，而保存后再加载（saveed-loaded）的镜像没有丢失历史和层 (layer)。这意味着使用导出后再导入的方式，你将无法回滚到之前的层(layer)，同时，使用保存后再加载的方式持久化整个镜像，就可以做到层回滚（可以执行docker tag <layer id=""> <image name="">来回滚之前的层）。</image></layer></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/15/dockerStudy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-docker下centos6.9镜像安装jira及破解完整操作记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">docker下centos6.9镜像安装jira及破解完整操作记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/" class="archive-article-date">
+  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说明：<br>以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件<a href="https://pan.baidu.com/s/1geNQp03" target="_blank" rel="external">在这里</a>,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~<br>1.下载docker mac版<br>2.在<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a>上查找镜像，<br>   也可以使用 docker search 命令来搜索镜像。<br>   docker search <image>：在docker index中搜索image,例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure></image></p>
+<p><img src="/img/docker/docker1.png" alt=""><br>    红色箭头显示为官方版本<br>    我们选择官方版本，但是可以通过选择版本标签来匹配安装版本，例如：<br>    docker pull centos:5.11 or docker pull centos:6.6</p>
+<p>3.下载cantos6.9版本的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos:6.9</div></pre></td></tr></table></figure></p>
+<p>之后打开进入容器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos:6.9 /bin/bash</div></pre></td></tr></table></figure></p>
+<p>-t:在新容器内指定一个伪终端或终端。<br>-i:允许你对容器内的标准输入 (STDIN) 进行交互。<br>        查看系统版本<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release</div></pre></td></tr></table></figure></p>
+<p>4.安装mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install -y mysql-server mysql</div></pre></td></tr></table></figure></p>
+<p>-y代表自动选择y</p>
+<p>5.安装完成以后启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div></pre></td></tr></table></figure></p>
+<p>6.验证安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure></p>
+<p><img src="/img/docker/docker2.png" alt=""><br>7.安装jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir java</div></pre></td></tr></table></figure></p>
+<p>8.mac主机中查看docker容器ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure></p>
+<p>使用cp命令把主机的文件拷贝到docker容器：格式：<br><img src="/img/docker/docker4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/jdk-8u121-linux-x64.tar containerID:/home/java/jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
+<p>9.容器交互终端下解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
+<p>配置环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/profile</div></pre></td></tr></table></figure></p>
+<p>文件最后添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/home/java/jdk1.8.0_121</div><div class="line">CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</div><div class="line">export PATH CLASSPATH JAVA_HOME</div></pre></td></tr></table></figure></p>
+<p>这样JDK就设置好了，然后以下命令使其生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># source /etc/profile</div><div class="line"># echo $JAVA_HOME 验证java的路径</div></pre></td></tr></table></figure></p>
+<p>10.拷贝jira安装包到容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-jira-6.3.6.tar containerID:/home/jira/atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
+<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
+<p>jira的8005和8080端口都重新修改一下，在server.xml中，我的修改为8007和8099了，修改方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi jira/atlassian-jira-6.3.6-standalone/conf/server.xml</div></pre></td></tr></table></figure></p>
+<p>在其中找到8005和8080进行修改<br>接着在atlassian-jira-6.3.6-standalone文件同目录下创建一个文件夹：jira_home，修改配置文件<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties</div></pre></td></tr></table></figure></p>
+<p>修改为如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jira.home = /home/jira/jira_home</div></pre></td></tr></table></figure></p>
+<p>启动jira服务：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>11.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysql -u root -p</div></pre></td></tr></table></figure></p>
+<p>默认无密码<br>创建数据库jiradb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database jiradb character set gbk;</div></pre></td></tr></table></figure></p>
+<p>创建用户并赋予权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create user jirauser identified by &apos;password&apos;;</div><div class="line"></div><div class="line">&gt; GRANT ALL ON jiradb.* TO &apos;jirauser&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; with grant option;</div><div class="line"></div><div class="line">&gt; flush privileges;</div></pre></td></tr></table></figure></p>
+<p>12.在JIRA的数据目录下删除文件：dbconfig.xml,删除这个文件再重启jira后就可以重新看到初始配置界面，这里可不执行这一步~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># rm -f /home/lijingdong/jira/jira_home/dbconfig.xml</div></pre></td></tr></table></figure></p>
+<p>13.重新启动JIRA服务<br>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/shutdown.sh</div></pre></td></tr></table></figure></p>
+<p>14.记下容器ID,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ exit 退出容器</div></pre></td></tr></table></figure></p>
+<p>15.docker commit 命令创建新镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker commit containerID centos6/jira:1.0</div></pre></td></tr></table></figure></p>
+<p>注意，如果不commit创建新镜像，之前的修改就都没了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images查看新创建的镜像：</div></pre></td></tr></table></figure></p>
+<p><img src="/img/docker/docker5.png" alt=""><br>16.重启镜像，并将端口8099映射到主机的8099端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t -p 8099:8099 centos6/jira:1.0  /bin/bash</div></pre></td></tr></table></figure></p>
+<p>此时需重新启动mysql，重新source JAVA_HOME，重新启动jira：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div><div class="line"># source /etc/profile</div><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
+<p>然后打开0.0.0.0:8099即可看到jira</p>
+<p>17.jira破解:<br>将atlassian-universal-plugin-manager-plugin-2.17.13.jar复制到容器上/home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-<br>             INF/atlassian-bundled-plugins/下：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-universal-plugin-manager-plugin-2.17.13.jar containerID:/home/jira/atlassian-jira-</div><div class="line">  6.3.6-standalone/atlassian-jira/WEB-INF/atlassian-bundled-plugins/</div></pre></td></tr></table></figure></p>
+<p>将破解文件atlassian-extras-2.2.2.jar复制到容器上/home/lijingdong/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/lib/目录下替换同名文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-extras-2.2.2.jar containerID:/home/jira/atlassian-jira-6.3.6-standalone/atlassian-</div><div class="line">   jira/WEB-INF/lib</div></pre></td></tr></table></figure></p>
+<p>之后重启jira。<br>点击右上角齿轮形状的管理图标，选择“系统”，再选择“授权”，看到使用日期不到1个月，如下所示：<br><img src="/img/docker/docker6.png" alt=""><br><img src="/img/docker/docker7.png" alt=""><br>填写授权码，授权码参数范例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Description=JIRA: Commercial,</div><div class="line">CreationDate=你的安装日期，格式（yyyy-mm-dd）,</div><div class="line">jira.LicenseEdition=ENTERPRISE,</div><div class="line">Evaluation=false,</div><div class="line">jira.LicenseTypeName=COMMERCIAL,</div><div class="line">jira.active=true,</div><div class="line">licenseVersion=2,</div><div class="line">MaintenanceExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">Organisation=joiandjoin,</div><div class="line">SEN=你申请到的SEN注意没有前缀LID,</div><div class="line">ServerID=你申请到的ServerID,</div><div class="line">jira.NumberOfUsers=-1,</div><div class="line">LicenseID=LID你申请到的SEN，注意LID前缀不要丢掉,</div><div class="line">LicenseExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">PurchaseDate=你的安装日期，格式（yyyy-mm-dd）</div></pre></td></tr></table></figure></p>
+<p>破解完成:<br><img src="/img/docker/docker8.png" alt=""><br>18.docker容器跨服务器迁移：<br>    有<a href="http://www.jb51.net/article/104529.htm" target="_blank" rel="external">两种方法</a>，我们使用save方式:<br>备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  docker save centos6/jira:2.0 &gt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
+<p>使用scp命令将文件拷贝到远程服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp /Users/peanut/Documents/Data\ Study/centos6_jira.tar user@serverIP:/home/user</div></pre></td></tr></table></figure></p>
+<p>恢复：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker load &lt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
+<p>查看恢复的镜像：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jira</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-丑奴儿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/丑奴儿/">丑奴儿·书博山道中壁</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/丑奴儿/" class="archive-article-date">
+  	<time datetime="2017-03-31T09:02:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font face="手札体-简">少年不识愁滋味，<br>爱上层楼。<br>爱上层楼，<br>为赋新词强说愁。<br>而今识尽愁滋味，<br>欲说还休。<br>欲说还休，<br>却道天凉好个秋。<br></font>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/think/" class="article-tag-list-link color1">think</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/丑奴儿/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-西洲曲" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/西洲曲/">西洲曲</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/西洲曲/" class="archive-article-date">
+  	<time datetime="2017-03-31T09:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font face="手札体-简">忆梅下西洲，折梅寄江北。<br>单衫杏子红，双鬓鸦雏色。<br>西洲在何处？两桨桥头渡。<br>日暮伯劳飞，风吹乌臼树。<br>树下即门前，门中露翠钿。<br>开门郎不至，出门采红莲。<br>采莲南塘秋，莲花过人头。<br>低头弄莲子，莲子清如水。<br>置莲怀袖中，莲心彻底红。<br>忆郎郎不至，仰首望飞鸿。<br>鸿飞满西洲，望郎上青楼。<br>楼高望不见，尽日栏杆头。<br>栏杆十二曲，垂手明如玉。<br>卷帘天自高，海水摇空绿。<br>海水梦悠悠，君愁我亦愁。<br>南风知我意，吹梦到西洲。<br></font>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/think/" class="article-tag-list-link color1">think</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/西洲曲/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-git个人博客使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/26/git个人博客使用/">git个人博客使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/26/git个人博客使用/" class="archive-article-date">
+  	<time datetime="2017-03-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><blockquote>
+<ul>
+<li>在source文件夹相应分类目录下写.md文件</li>
+<li>根目录下执行命令即可<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g -d</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h3><p><a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="external">参考链接</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: JAVA基本类型与封装类型的区别</div><div class="line">date: 2018/5/16</div><div class="line">tag: [java,封装]</div><div class="line">categories: java</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>抬头部分还支持的其他参数：<br><img src="/img/front-matter.png" alt=""></p>
+<p><font color="#ff0000">markdown支持html语法</font><br>加颜色（类似于html的语法）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#ff0000</span>&gt;</span>内容部分<span class="tag">&lt;/<span class="name">font</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><a href="https://www.114la.com/other/rgb.htm" target="_blank" rel="external">RGB颜色查询对照表</a></p>
+<p>修改字体：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"手札体-简"</span>&gt;</span>内容部分</div><div class="line"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>添加图片：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">![](/img/airflow/run.png)</div><div class="line">这里的根路径是指source文件夹</div></pre></td></tr></table></figure></p>
+<p>添加超链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[文字](http://********)</div><div class="line">例：</div><div class="line">[CSS参考手册](http://www.w3school.com.cn/cssref/css_selectors.asp)</div></pre></td></tr></table></figure></p>
+<p>表格：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">| 函数 | 描述 |</div><div class="line">|:--- | :--- | <span class="comment">//:代表左对齐，类似右对齐为---:，居中对齐为:---:</span></div><div class="line">|JSON.parse()|将JSON字符串转为js对象|</div><div class="line">|JSON.stringify()|将js值转为JSON字符串|</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/26/git个人博客使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-w3m文字浏览器基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -829,6 +1386,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
             
             <div class="clearfix"></div>

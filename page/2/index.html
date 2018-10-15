@@ -183,31 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-VPS调研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-438. Find All Anagrams in a String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/16/VPS调研/">VPS调研</a>
+      <a class="article-title" href="/2018/10/04/438. Find All Anagrams in a String/">438. Find All Anagrams in a String</a>
     </h1>
   
 
         
-        <a href="/2017/05/16/VPS调研/" class="archive-article-date">
-  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+        <a href="/2018/10/04/438. Find All Anagrams in a String/" class="archive-article-date">
+  	<time datetime="2018-10-04T13:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>比较：<br>1、 <a href="http://blog.csdn.net/zhang_zp2014/article/details/46822263" target="_blank" rel="external">http://blog.csdn.net/zhang_zp2014/article/details/46822263</a><br>2、搬瓦工与vultr及linode三家VPS服务商<br><a href="http://www.bawagon.com/bandwagonvultrlinode/" target="_blank" rel="external">http://www.bawagon.com/bandwagonvultrlinode/</a><br>首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好。因此追求性能的选择Vultr及Linode ,追求价格的可以选择搬瓦工VPS。</p>
-<p>Xen、OpenVZ、KVM三大VPS技术优劣势详解<br>基于KVM系统好，能保证内存<br><a href="http://vps.zzidc.com/vpsjishu/452.html" target="_blank" rel="external">http://vps.zzidc.com/vpsjishu/452.html</a></p>
-<p>VPS服务器全面性能测试：<br><a href="https://www.freehao123.com/vps-cpu-io-unixbench/" target="_blank" rel="external">https://www.freehao123.com/vps-cpu-io-unixbench/</a></p>
-<p>VPS主机的CPU详细参数:<br>$ cat /proc/cpuinfo<br>查看内存信息：<br>cat /proc/meminfo<br>测试硬盘读写速度：<br>sudo dd if=/dev/zero of=test bs=1M count=1024</p>
-<p>172.104.111.103<br>172.104.111.103<br>ssserver -p 8383 -k 201702 -m rc4-md5 -d start</p>
+        <p>滑动窗口法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public static List&lt;Integer&gt; findAnagrams(String s, String p) &#123;</div><div class="line">    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</div><div class="line">    if (s.length() == 0 || p.length() == 0 || s.length() &lt; p.length()) &#123;</div><div class="line">      return res;</div><div class="line">    &#125;</div><div class="line">    int[] chars = new int[26];</div><div class="line">    for (int i = 0; i &lt; p.length(); i++) &#123;</div><div class="line">      chars[p.charAt(i) - &apos;a&apos;]++;</div><div class="line">    &#125;</div><div class="line">    int start = 0, end = 0, len = p.length(), diff = len;</div><div class="line">    while (end&lt;len)&#123;</div><div class="line">      chars[s.charAt(end)-&apos;a&apos;]--;</div><div class="line">      if(chars[s.charAt(end)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff--;</div><div class="line">      &#125;</div><div class="line">      end++;</div><div class="line">    &#125;</div><div class="line">    if(diff==0) res.add(0);</div><div class="line">    while(end&lt;s.length())&#123;</div><div class="line">      if(chars[s.charAt(start)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff++;</div><div class="line">      &#125;</div><div class="line">      chars[s.charAt(start)-&apos;a&apos;]++;</div><div class="line">      start++;</div><div class="line"></div><div class="line">      chars[s.charAt(end)-&apos;a&apos;]--;</div><div class="line">      if(chars[s.charAt(end)-&apos;a&apos;]&gt;=0)&#123;</div><div class="line">        diff--;</div><div class="line">      &#125;</div><div class="line">      if(diff==0)</div><div class="line">        res.add(start);</div><div class="line">      end++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return res;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -221,7 +217,252 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/leetcode/" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/04/438. Find All Anagrams in a String/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-107. Binary Tree Level Order Traversal II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/107. Binary Tree Level Order Traversal II/">107. Binary Tree Level Order Traversal II</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/107. Binary Tree Level Order Traversal II/" class="archive-article-date">
+  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Given a binary tree, return the bottom-up level order traversal of its nodes&apos; values. (ie, from left to right, level by level from leaf to root).</div><div class="line"></div><div class="line">For example:</div><div class="line">Given binary tree [3,9,20,null,null,15,7],</div><div class="line">    3</div><div class="line">   / \</div><div class="line">  9  20</div><div class="line">    /  \</div><div class="line">   15   7</div><div class="line">return its bottom-up level order traversal as:</div><div class="line">[</div><div class="line">  [15,7],</div><div class="line">  [9,20],</div><div class="line">  [3]</div><div class="line">]</div></pre></td></tr></table></figure>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>使用队列逐层遍历，存到res，不过这道题是反向存储，所以每层得到的List就存入res的起始位置，这样就倒序了<br>这里有两种集合可以实现插入起始位置：<br>若使用ArrayList，使用add(index,ArrayList)方法<br>若使用LinkedList，使用addFirst(ArrayList)方法</p>
+<p>PS:<br>这里遇到的一个问题就是返回值是<code>List&lt;List&lt;Integer&gt;&gt;</code>这样的集合嵌套形式，参见我的另一篇<code>Java集合嵌套</code>的笔记。</p>
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) &#123;</div><div class="line">        ArrayList&lt;List&lt;Integer&gt;&gt; res=<span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">        </div><div class="line">        LinkedList&lt;TreeNode&gt; queue=<span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</div><div class="line">        queue.add(root);</div><div class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</div><div class="line">        </div><div class="line">        ArrayList&lt;Integer&gt; middleList=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        TreeNode tmp=<span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</div><div class="line">            tmp=queue.poll();</div><div class="line">            count--;</div><div class="line">            middleList.add(tmp.val);</div><div class="line">            <span class="keyword">if</span>(tmp.left!=<span class="keyword">null</span>)&#123;</div><div class="line">                queue.add(tmp.left);</div><div class="line">                <span class="comment">//count++;</span></div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(tmp.right!=<span class="keyword">null</span>)&#123;</div><div class="line">                queue.add(tmp.right);</div><div class="line">                <span class="comment">//count++;</span></div><div class="line">            &#125;</div><div class="line">           <span class="keyword">if</span>(count==<span class="number">0</span>)&#123;</div><div class="line">                res.add(<span class="number">0</span>,middleList); <span class="comment">//insert one by one from the beginning</span></div><div class="line">                middleList=<span class="keyword">new</span> ArrayList&lt;Integer&gt;(); <span class="comment">//这里注意不能赋值为null</span></div><div class="line">                count=queue.size();</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/leetcode/" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/107. Binary Tree Level Order Traversal II/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java集合嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/Java集合嵌套/">Java集合嵌套</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/Java集合嵌套/" class="archive-article-date">
+  	<time datetime="2018-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到这样返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于List是接口，不可直接实例化，也就是直接使用<code>List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;();</code>是错的</p>
+<p>但如果使用<code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code>又会报错（cannot convert from LinkedList<linkedlist<integer>&gt; to List<list<integer>&gt;）</list<integer></linkedlist<integer></p>
+<p>正确的做法是修改成：<br><code>List&lt;LinkedList&lt;Integer&gt;&gt; list = new LinkedList&lt;LinkedList&lt;Integer&gt;&gt;();</code><br>或<br><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</code><br>这样才可以，也就是说，<font color="#ff0000">泛型的类型参数必须相同</font>。</p>
+<p>下面这种处理</p>
+<p><code>ArrayList&lt;ArrayList&lt;String&gt;&gt; list= new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</code><br>或<br><code>LinkedList&lt;LinkedList&lt;String&gt;&gt; list = new LinkedList&lt;LinkedList&lt;String&gt;&gt;();</code><br>也是可以的，这样就没有用接口类引用实现类了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">集合嵌套</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/Java集合嵌套/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-airflow前端到后台调用逻辑分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/28/airflow前端到后台调用逻辑分析/">airflow前端到后台调用逻辑分析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/28/airflow前端到后台调用逻辑分析/" class="archive-article-date">
+  	<time datetime="2017-06-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><font color="#ff0000"><strong>传参方式分析：</strong></font><br>使用docker镜像：<br>puckel/docker-airflow</p>
+<p>下载镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull puckel/docker-airflow</div></pre></td></tr></table></figure></p>
+<p>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">（-d 以后台模式启动，-p 端口映射 主机端口：容器端口）</div></pre></td></tr></table></figure></p>
+<p>进入docker：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [container_name] bash</div></pre></td></tr></table></figure></p>
+<p>接下来以分析tutorial为例：<br>分析run按钮：<br><img src="/img/airflow/run.png" alt=""><br>点击的script代码如下：<br><img src="/img/airflow/click.png" alt=""><br>这个函数首先组装一个url地址，然后window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Id选择器： 以“#”来定义</div><div class="line">class选择器：以“.”来定义</div><div class="line">hasClass() 方法检查被选元素是否包含指定的 class，返回true或false</div><div class="line">encodeURIComponent() 函数可把字符串作为 URI 组件进行编码，该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * &apos; ( ) ，</div><div class="line">该函数假定它的参数是 URI 的一部分，因此 encodeURIComponent() 函数将转义用于分隔 URI 各个部分的标点符号。</div></pre></td></tr></table></figure></p>
+<p>组装格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/airflow/run?task_id= &amp;dag_id=&amp;ignore_all_deps &amp;ignore_task_deps= &amp;ignore_ti_state= &amp;execution_date= &amp;origin=</div></pre></td></tr></table></figure></p>
+<p>可以通过在web调试窗设断点来找出最终组合的字符串如下形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;/admin/airflow/run?task_id=sleep&amp;dag_id=tutorial&amp;ignore_all_deps=false&amp;ignore_task_deps=false&amp;ignore_ti_state=false&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div><div class="line"></div><div class="line">&quot;/admin/airflow/success?task_id=templated&amp;dag_id=tutorial&amp;upstream=false&amp;downstream=false&amp;future=false&amp;past=true&amp;execution_date=2017-05-25&amp;origin=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin%2Fairflow%2Fgraph%3Fdag_id%3Dtutorial&quot;</div></pre></td></tr></table></figure></p>
+<p>这里我们就找到了airflow前端到后台调用的方式（通过url传参），接下来需要找出如何通过url传参到后台响应：</p>
+<p><font color="#ff0000"><strong>url传参分析：</strong></font><br>先贴最终结果，airflow使用的是python的flask框架，定义的文件在如下路径的python文件里，从下图中我们可以看到暴露了/run路径，同样的还有success也是以这种方式暴露的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/python2.7/dist-packages/airflow/www/views.py</div></pre></td></tr></table></figure></p>
+<p><img src="/img/airflow/expose.png" alt=""></p>
+<p>至于如何找到用什么框架方法，是先通过组装好的url的特征字符串比如“run”，然后使用grep命令进行文件内容查找，锁定到views.py文件，然后查看import的<br>库找到所使用的框架，之后我们就可以通过学习框架继续深入研究airflow啦！这是我目前使用的分析逻辑，虽然笨了点，希望对大家能有所帮助，以此抛砖引玉，以后学习<br>更深入了了解的框架更多了，应该能根据经验判断出套用的框架或者调用方式，希望大家有更好的方法能与笔者交流~</p>
+<p><img src="/img/airflow/import.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">airflow</a>
         		</li>
       		
 		</ul>
@@ -242,7 +483,172 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/16/VPS调研/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/28/airflow前端到后台调用逻辑分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-shell常用命令笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/29/shell常用命令笔记/">shell常用命令笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/29/shell常用命令笔记/" class="archive-article-date">
+  	<time datetime="2017-05-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="通过-uname-r-命令查看你当前的内核版本"><a href="#通过-uname-r-命令查看你当前的内核版本" class="headerlink" title="通过 uname -r 命令查看你当前的内核版本:"></a>通过 uname -r 命令查看你当前的内核版本:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ uname -r</div><div class="line">3.10.0-327.el7.x86_64</div></pre></td></tr></table></figure>
+<h3 id="vi使用"><a href="#vi使用" class="headerlink" title="vi使用:"></a>vi使用:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">0 移至行首</div><div class="line">$ 移至行尾</div><div class="line">u 撤销</div><div class="line">dd 删除光标所在行</div><div class="line">u 撤销上一步操作</div><div class="line">X 向后删除字符</div><div class="line">x 向前删除字符</div></pre></td></tr></table></figure>
+<h3 id="运行脚本两种方式："><a href="#运行脚本两种方式：" class="headerlink" title="运行脚本两种方式："></a>运行脚本两种方式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1、source scriptname  //这种方式就像直接输入一样</div><div class="line">2、./scriptname     //这种方式脚本运行在子shell</div></pre></td></tr></table></figure>
+<p><img src="/img/runShell.png" alt=""></p>
+<h3 id="find命令："><a href="#find命令：" class="headerlink" title="find命令："></a>find命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">一般形式为:</div><div class="line">find pathname -options [-print -exec -ok]</div><div class="line">例：</div><div class="line">-name选项：</div><div class="line">$ find ~ -name &quot;*.txt&quot; -print</div><div class="line">$ find . -name &quot;[A-Z]*&quot; -print //当前目录及子目录中查找以大写字母开头</div><div class="line">$ find . -name &quot;[a-z][a-z][0--9][0--9].txt&quot; -print //在当前目录查找文件名以两个小写字母开头,跟着是两个数字,最后是 *.txt的文件</div><div class="line">$ find /etc -type d -print //-type查找所有的文件夹</div><div class="line">b - 块设备文件。</div><div class="line">d - 目录。</div><div class="line">c - 字符设备文件。</div><div class="line">p - 管道文件。</div><div class="line">l - 符号链接文件。</div><div class="line">f - 普通文件。</div></pre></td></tr></table></figure>
+<h3 id="grep命令："><a href="#grep命令：" class="headerlink" title="grep命令："></a>grep命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">一般格式为:</div><div class="line">grep [选项] 基本正则表达式 [文件]    //基本正则表达式可为字符串。</div><div class="line"></div><div class="line">常用的grep选项有:</div><div class="line">-c 只输出匹配行的计数，匹配的有几行</div><div class="line">-i 不区分大小写(只适用于单字符)。</div><div class="line">-h 查询多文件时不显示文件名。</div><div class="line">-l 查询多文件时只输出包含匹配字符的文件名。 -n 显示匹配行及行号。</div><div class="line">-s 不显示不存在或无匹配文本的错误信息。</div><div class="line">-v 显示不包含匹配文本的所有行</div><div class="line">例子：</div><div class="line">$ grep “sort&quot; *.doc</div><div class="line"></div><div class="line">$ grep “string&lt;tab&gt;” *  //&lt;Tab&gt;表示点击 tab键</div><div class="line"></div><div class="line">$ grep ’48[346]’ *   //使用 []来指定字符串范围,这里用48开始,以3或4或6结尾</div><div class="line"></div><div class="line">$ grep ‘[A-Z][B-Z]..C’ * //匹配头两个是大写字母，以C结尾，中间两位任意</div></pre></td></tr></table></figure>
+<h3 id="awk命令："><a href="#awk命令：" class="headerlink" title="awk命令："></a>awk命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">动作用&#123;&#125;括起来，if后面的条件用（）括起来</div><div class="line">awk执行时,其浏览域标记为 $1,$2...$n。这种方法称为域标识。使用$1,$3表示参照第1和第3域，可使用 $0,意即所有域</div><div class="line">例子：</div><div class="line">$ awk ‘&#123;print $0&#125;’ grade.txt &gt;test  //重定向输出到文件test，此时不显示</div><div class="line">$ awk ‘&#123;print $0&#125;’ grade.txt | tee test //重定向输出到文件test，并显示到屏幕</div><div class="line">匹配：使用~紧跟正则表达式</div><div class="line">$ docker ps -a | awk &apos;&#123;if($2~/p/) print $1&#125;’   // 通过管道找到docker ps -a命令输出中匹配第二列包含p的，然后输出第一列</div></pre></td></tr></table></figure>
+<p><img src="/img/awk1.png" alt=""><br><img src="/img/awk2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk ‘&#123;if($4~/brown/) print $0&#125;’ grade.txt   //匹配第四列包含字符串brown的，然后打印匹配记录行</div><div class="line">精确匹配用==</div><div class="line">$ awk &apos;$3==“brown” &#123;print $0&#125;’ grade.txt</div><div class="line">$ awk ‘&#123;if($4 !~/brown/) print $0&#125;’ grade.txt //不匹配第四列包含字符串brown的，然后打印匹配记录行</div></pre></td></tr></table></figure></p>
+<h3 id="sort命令："><a href="#sort命令：" class="headerlink" title="sort命令："></a>sort命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sort -c filename  //检查文件是否已分类</div><div class="line">sort -t: filename  //以第1域进行分类(默认)，域分隔符为“:”，默认为空格</div><div class="line">sort -t: -r filename  //-r逆序分类</div><div class="line">sort -u filename  //去除重复行</div><div class="line">sort -t: -k2 filename  //以第2域进行分类</div><div class="line">sort -k2 -k4 filename  //先以第4域,再以第1域分类</div></pre></td></tr></table></figure>
+<h3 id="ls命令："><a href="#ls命令：" class="headerlink" title="ls命令："></a>ls命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ll等价于 ls -l</div><div class="line">输出文件大小以B为单位</div></pre></td></tr></table></figure>
+<h3 id="iptables查看及修改防火墙规则："><a href="#iptables查看及修改防火墙规则：" class="headerlink" title="iptables查看及修改防火墙规则："></a>iptables查看及修改防火墙规则：</h3><p>查看规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo iptables -nL --line-number</div><div class="line"></div><div class="line">-L 查看当前表的所有规则，默认查看的是filter表，如果要查看NAT表，可以加上-t NAT参数</div><div class="line">-n 不对ip地址进行反查，加上这个参数显示速度会快很多</div><div class="line">-v 输出详细信息，包含通过该规则的数据包数量，总字节数及相应的网络接口</div><div class="line">–line-number 显示规则的序列号，这个参数在删除或修改规则时会用到</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables1.png" alt=""><br>-R参数修改规则:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo iptables -R INPUT 5 -j ACCEPT</div><div class="line">sudo iptables -R FORWARD 1 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p><img src="/img/iptables2.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/29/shell常用命令笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/22/Mac使用/">Mac使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/22/Mac使用/" class="archive-article-date">
+  	<time datetime="2017-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="关闭端口占用方法："><a href="#关闭端口占用方法：" class="headerlink" title="关闭端口占用方法："></a>关闭端口占用方法：</h3><p>查询PID:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i:端口号</div></pre></td></tr></table></figure></p>
+<p>关闭：<br>kill -9 PID</p>
+<h3 id="kill网卡进程"><a href="#kill网卡进程" class="headerlink" title="kill网卡进程"></a>kill网卡进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo killall -9 networkd</div></pre></td></tr></table></figure>
+<p>快捷键对照：<br><img src="/img/mac_shortcut.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mac使用</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/22/Mac使用/">展开全文 >></a>
         </p>
       
 
@@ -345,6 +751,83 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/16/微软Coco Framework翻译学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-VPS调研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/16/VPS调研/">VPS调研</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/16/VPS调研/" class="archive-article-date">
+  	<time datetime="2017-05-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>比较：<br>1、 <a href="http://blog.csdn.net/zhang_zp2014/article/details/46822263" target="_blank" rel="external">http://blog.csdn.net/zhang_zp2014/article/details/46822263</a><br>2、搬瓦工与vultr及linode三家VPS服务商<br><a href="http://www.bawagon.com/bandwagonvultrlinode/" target="_blank" rel="external">http://www.bawagon.com/bandwagonvultrlinode/</a><br>首先价格上搬瓦工实惠，搬瓦工是Openvz系统的VPS，而Vultr及Linode都是KVM系统，性能上比搬瓦工要更好，可操作性更好。因此追求性能的选择Vultr及Linode ,追求价格的可以选择搬瓦工VPS。</p>
+<p>Xen、OpenVZ、KVM三大VPS技术优劣势详解<br>基于KVM系统好，能保证内存<br><a href="http://vps.zzidc.com/vpsjishu/452.html" target="_blank" rel="external">http://vps.zzidc.com/vpsjishu/452.html</a></p>
+<p>VPS服务器全面性能测试：<br><a href="https://www.freehao123.com/vps-cpu-io-unixbench/" target="_blank" rel="external">https://www.freehao123.com/vps-cpu-io-unixbench/</a></p>
+<p>VPS主机的CPU详细参数:<br>$ cat /proc/cpuinfo<br>查看内存信息：<br>cat /proc/meminfo<br>测试硬盘读写速度：<br>sudo dd if=/dev/zero of=test bs=1M count=1024</p>
+<p>172.104.111.103<br>172.104.111.103<br>ssserver -p 8383 -k 201702 -m rc4-md5 -d start</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/16/VPS调研/">展开全文 >></a>
         </p>
       
 
@@ -561,562 +1044,6 @@
 
 
   
-    <article id="post-Javascript笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/Javascript笔记/">Javascript笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/Javascript笔记/" class="archive-article-date">
-  	<time datetime="2017-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="外部调用"><a href="#外部调用" class="headerlink" title="外部调用:"></a>外部调用:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>myScript.js 文件代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123; <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"我的第一个 JavaScript 函数"</span>; &#125;</div></pre></td></tr></table></figure></p>
-<p>注：外部脚本不包含<code>&lt;script&gt;</code> 标签</p>
-<h3 id="输出：（4种方式）"><a href="#输出：（4种方式）" class="headerlink" title="输出：（4种方式）"></a>输出：（4种方式）</h3><p>1、 window.alert() 弹出警告框<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.alert(<span class="number">5</span> + <span class="number">6</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>2、 document.write() 方法将内容写到 HTML 文档中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;这是一个标题&lt;/h1&gt;"</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖</p>
-<p>3、使用 innerHTML 写入到 HTML 元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"My First JavaScript"</span>;</div></pre></td></tr></table></figure></p>
-<p>4、使用 console.log() 写入到浏览器的控制台<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(“string<span class="string">");</span></div></pre></td></tr></table></figure></p>
-<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量:"></a>定义变量:</h3><p><code>var name=&quot;Gates&quot;, age=56, job=&quot;CEO&quot;;</code><br>如果重新声明 JavaScript 变量，该变量的值不会丢失：</p>
-<p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：<br><code>var person={firstname:&quot;Bill&quot;, lastname:&quot;Gates&quot;, id:5566};</code><br>对象属性有两种寻址方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name=person.lastname;</div><div class="line">name=person[<span class="string">"lastname"</span>];</div></pre></td></tr></table></figure></p>
-<p><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我!&lt;/button&gt;</code></p>
-<p>使用 String 对象的 toUpperCase() 方法来把文本转换为大写：</p>
-<p>您会经常看到 document.getElementById(“some id”)。这个方法是 HTML DOM 中定义的。<br>DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function changeImage()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;img id="myimage" onclick="changeImage()"</div><div class="line">src="/images/pic_bulboff.gif" width="100" height="180"&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="改变-HTML-元素的样式"><a href="#改变-HTML-元素的样式" class="headerlink" title="改变 HTML 元素的样式:"></a>改变 HTML 元素的样式:</h3><p><code>x=document.getElementById(&quot;demo&quot;)</code> // 找到元素<br><code>x.style.color=&quot;#ff0000&quot;;</code>        // 改变样式</p>
-<h3 id="获取输入框内容："><a href="#获取输入框内容：" class="headerlink" title="获取输入框内容："></a>获取输入框内容：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id="demo" type="text”&gt; //输入框创建</div><div class="line">var x=document.getElementById("demo").value;</div></pre></td></tr></table></figure>
-<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//单行</div><div class="line">/*多行</div><div class="line">*/</div></pre></td></tr></table></figure>
-<p>JavaScript 对大小写是敏感的</p>
-<h3 id="对代码行进行折行："><a href="#对代码行进行折行：" class="headerlink" title="对代码行进行折行："></a>对代码行进行折行：</h3><p>您可以在文本字符串中使用反斜杠对代码行进行换行。下面的例子会正确地显示：<br><code>document.write(&quot;你好 \</code><br><code>世界!&quot;);</code><br>不过，您不能像这样折行：<br><code>document.write \</code><br><code>(&quot;你好世界!&quot;);</code></p>
-<p>常见的HTML事件的列表:</p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>onchange</td>
-<td style="text-align:left">HTML 元素改变</td>
-</tr>
-<tr>
-<td>onclick</td>
-<td style="text-align:left">用户点击 HTML 元素</td>
-</tr>
-<tr>
-<td>onmouseover</td>
-<td style="text-align:left">用户在一个HTML元素上移动鼠标</td>
-</tr>
-<tr>
-<td>onmouseout</td>
-<td style="text-align:left">用户从一个HTML元素上移开鼠标</td>
-</tr>
-<tr>
-<td>onkeydown</td>
-<td style="text-align:left">用户按下键盘按键</td>
-</tr>
-<tr>
-<td>onload</td>
-<td style="text-align:left">浏览器已完成页面的加载</td>
-</tr>
-</tbody>
-</table>
-<h3 id="基于某些条件对变量进行赋值"><a href="#基于某些条件对变量进行赋值" class="headerlink" title="基于某些条件对变量进行赋值:"></a>基于某些条件对变量进行赋值:</h3><p><code>variablename=(condition)?value1:value2</code><br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">voteable=(age&lt;<span class="number">18</span>)?<span class="string">"年龄太小"</span>:<span class="string">"年龄已达到"</span>;</div><div class="line">time 当前<span class="number">24</span>小时制整点数字 例如<span class="number">2</span> <span class="number">15</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (condition1)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (condition2)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="改变HTML内容："><a href="#改变HTML内容：" class="headerlink" title="改变HTML内容："></a>改变HTML内容：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通过id查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"></div><div class="line">通过标签名查找 HTML 元素:</div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</div><div class="line"><span class="keyword">var</span> y=x.getElementsByTagName(<span class="string">"p"</span>);</div><div class="line"></div><div class="line">通过类名查找 HTML 元素:</div><div class="line">x=<span class="built_in">document</span>.getElementsByClassName(<span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
-<h3 id="改变HTML属性："><a href="#改变HTML属性：" class="headerlink" title="改变HTML属性："></a>改变HTML属性：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).属性标签=新属性值</div></pre></td></tr></table></figure>
-<h3 id="改变HTML样式："><a href="#改变HTML样式：" class="headerlink" title="改变HTML样式："></a>改变HTML样式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(id).style.property=新样式</div><div class="line">例如：</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>).style.color=<span class="string">"blue"</span>;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/Javascript笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-dockerStudy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/15/dockerStudy/">docker学习整理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/15/dockerStudy/" class="archive-article-date">
-  	<time datetime="2017-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker version：查看docker的版本号，包括客户端、服务端、依赖的Go等</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker info ：查看系统(docker)层面信息，包括管理的images, containers数等</div></pre></td></tr></table></figure>
-<p>查找镜像，可做模糊搜索<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search &lt;image&gt;：在docker index中搜索image</div></pre></td></tr></table></figure></p>
-<p>下载镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull &lt;image&gt; ：从docker registry server 中下拉image</div></pre></td></tr></table></figure></p>
-<p>查看镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker images： 列出images</div><div class="line">docker images -a ：列出所有的images（包含历史）</div></pre></td></tr></table></figure></p>
-<p>删除镜像或容器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker rmi  &lt;image ID&gt;： 删除一个或多个image</div><div class="line">docker rm  &lt;container ID&gt;： 删除一个或多个container</div><div class="line">docker rm `docker ps -a -q` ：删除所有的container</div><div class="line">docker ps -a -q | xargs docker rm ：同上, 删除所有的container</div></pre></td></tr></table></figure></p>
-<p>使用镜像创建容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">docker run [options] [image]</div><div class="line">options:</div><div class="line">-d 以后台方式运行</div><div class="line">-p 指定端口映射 </div><div class="line">-p &lt;host_port:contain_port&gt;</div><div class="line">docker run -d -p 8080:8080 puckel/docker-airflow</div><div class="line">-i -t 一般同时使用，在新容器内指定一个伪终端或终端，并允许进行交互</div><div class="line">docker run -i -t centos:6.9 /bin/bash :使用镜像centos:6.9创建container并进入交互模式, login shell是/bin/bash</div></pre></td></tr></table></figure></p>
-<p>查看容器:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker ps ：列出当前所有正在运行的container</div><div class="line">docker ps -l ：列出最近一次启动的container</div><div class="line">docker ps -a ：列出所有的container（包含历史，即运行过的container）</div><div class="line">docker ps -q ：列出最近一次运行的container ID</div></pre></td></tr></table></figure></p>
-<p>开启/停止/重启/连接container:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker start/stop/restart &lt;container&gt; :注：使用start是启动已经创建过得container，使用run则通过image开启一个新的container。</div><div class="line">docker attach [container_id] ：连接一个正在运行的container实例（即实例必须为start状态，可以多个窗口同时attach一个container实例）</div></pre></td></tr></table></figure></p>
-<p>通过容器生成新的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker commit &lt;container&gt; [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选。</div></pre></td></tr></table></figure></p>
-<p>容器备份、恢复和迁移：<br>docker的备份方式有export和save两种。<br>export备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export是当前的状态，针对的是容器，docker save 是针对镜像images。</div><div class="line">  $ docker export [CONTAINER ID] &gt;export.tar  //export是把容器打成一个tar包。</div><div class="line">import恢复：</div><div class="line">  $ cat export.tar | docker import - repo:tag</div></pre></td></tr></table></figure></p>
-<p> save备份：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $  docker save repo:tag &gt;save.tar</div><div class="line">恢复镜像:</div><div class="line"> $  docker load &lt;save.tar</div><div class="line">对image打tag</div><div class="line">$ docker tag imageID repo:tag</div></pre></td></tr></table></figure></p>
-<p>两者的区别:</p>
-<p>导出后再导入(exported-imported)的镜像会丢失所有的历史，而保存后再加载（saveed-loaded）的镜像没有丢失历史和层 (layer)。这意味着使用导出后再导入的方式，你将无法回滚到之前的层(layer)，同时，使用保存后再加载的方式持久化整个镜像，就可以做到层回滚（可以执行docker tag <layer id=""> <image name="">来回滚之前的层）。</image></layer></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/15/dockerStudy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-docker下centos6.9镜像安装jira及破解完整操作记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">docker下centos6.9镜像安装jira及破解完整操作记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/" class="archive-article-date">
-  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>说明：<br>以下操作命令中以$开头的是在主机终端下操作的，以#开头的是在容器交互终端下操作的，即docker镜像系统centos6.9，所需文件<a href="https://pan.baidu.com/s/1geNQp03" target="_blank" rel="external">在这里</a>,下文中拷贝命令的时候注意使用mkdir命令建立相对应的文件夹~<br>1.下载docker mac版<br>2.在<a href="https://hub.docker.com/explore/" target="_blank" rel="external">https://hub.docker.com/explore/</a>上查找镜像，<br>   也可以使用 docker search 命令来搜索镜像。<br>   docker search <image>：在docker index中搜索image,例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure></image></p>
-<p><img src="/img/docker/docker1.png" alt=""><br>    红色箭头显示为官方版本<br>    我们选择官方版本，但是可以通过选择版本标签来匹配安装版本，例如：<br>    docker pull centos:5.11 or docker pull centos:6.6</p>
-<p>3.下载cantos6.9版本的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos:6.9</div></pre></td></tr></table></figure></p>
-<p>之后打开进入容器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos:6.9 /bin/bash</div></pre></td></tr></table></figure></p>
-<p>-t:在新容器内指定一个伪终端或终端。<br>-i:允许你对容器内的标准输入 (STDIN) 进行交互。<br>        查看系统版本<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release</div></pre></td></tr></table></figure></p>
-<p>4.安装mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install -y mysql-server mysql</div></pre></td></tr></table></figure></p>
-<p>-y代表自动选择y</p>
-<p>5.安装完成以后启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div></pre></td></tr></table></figure></p>
-<p>6.验证安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker2.png" alt=""><br>7.安装jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir java</div></pre></td></tr></table></figure></p>
-<p>8.mac主机中查看docker容器ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure></p>
-<p>使用cp命令把主机的文件拷贝到docker容器：格式：<br><img src="/img/docker/docker4.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/jdk-8u121-linux-x64.tar containerID:/home/java/jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>9.容器交互终端下解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf jdk-8u121-linux-x64.tar</div></pre></td></tr></table></figure></p>
-<p>配置环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/profile</div></pre></td></tr></table></figure></p>
-<p>文件最后添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/home/java/jdk1.8.0_121</div><div class="line">CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</div><div class="line">export PATH CLASSPATH JAVA_HOME</div></pre></td></tr></table></figure></p>
-<p>这样JDK就设置好了，然后以下命令使其生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># source /etc/profile</div><div class="line"># echo $JAVA_HOME 验证java的路径</div></pre></td></tr></table></figure></p>
-<p>10.拷贝jira安装包到容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-jira-6.3.6.tar containerID:/home/jira/atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># tar -xvf atlassian-jira-6.3.6.tar</div></pre></td></tr></table></figure></p>
-<p>jira的8005和8080端口都重新修改一下，在server.xml中，我的修改为8007和8099了，修改方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi jira/atlassian-jira-6.3.6-standalone/conf/server.xml</div></pre></td></tr></table></figure></p>
-<p>在其中找到8005和8080进行修改<br>接着在atlassian-jira-6.3.6-standalone文件同目录下创建一个文件夹：jira_home，修改配置文件<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties</div></pre></td></tr></table></figure></p>
-<p>修改为如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jira.home = /home/jira/jira_home</div></pre></td></tr></table></figure></p>
-<p>启动jira服务：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>11.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysql -u root -p</div></pre></td></tr></table></figure></p>
-<p>默认无密码<br>创建数据库jiradb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database jiradb character set gbk;</div></pre></td></tr></table></figure></p>
-<p>创建用户并赋予权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create user jirauser identified by &apos;password&apos;;</div><div class="line"></div><div class="line">&gt; GRANT ALL ON jiradb.* TO &apos;jirauser&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; with grant option;</div><div class="line"></div><div class="line">&gt; flush privileges;</div></pre></td></tr></table></figure></p>
-<p>12.在JIRA的数据目录下删除文件：dbconfig.xml,删除这个文件再重启jira后就可以重新看到初始配置界面，这里可不执行这一步~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># rm -f /home/lijingdong/jira/jira_home/dbconfig.xml</div></pre></td></tr></table></figure></p>
-<p>13.重新启动JIRA服务<br>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/shutdown.sh</div></pre></td></tr></table></figure></p>
-<p>14.记下容器ID,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ exit 退出容器</div></pre></td></tr></table></figure></p>
-<p>15.docker commit 命令创建新镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker commit containerID centos6/jira:1.0</div></pre></td></tr></table></figure></p>
-<p>注意，如果不commit创建新镜像，之前的修改就都没了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images查看新创建的镜像：</div></pre></td></tr></table></figure></p>
-<p><img src="/img/docker/docker5.png" alt=""><br>16.重启镜像，并将端口8099映射到主机的8099端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t -p 8099:8099 centos6/jira:1.0  /bin/bash</div></pre></td></tr></table></figure></p>
-<p>此时需重新启动mysql，重新source JAVA_HOME，重新启动jira：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start</div><div class="line"># source /etc/profile</div><div class="line"># /home/jira/atlassian-jira-6.3.6-standalone/bin/start-jira.sh</div></pre></td></tr></table></figure></p>
-<p>然后打开0.0.0.0:8099即可看到jira</p>
-<p>17.jira破解:<br>将atlassian-universal-plugin-manager-plugin-2.17.13.jar复制到容器上/home/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-<br>             INF/atlassian-bundled-plugins/下：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-universal-plugin-manager-plugin-2.17.13.jar containerID:/home/jira/atlassian-jira-</div><div class="line">  6.3.6-standalone/atlassian-jira/WEB-INF/atlassian-bundled-plugins/</div></pre></td></tr></table></figure></p>
-<p>将破解文件atlassian-extras-2.2.2.jar复制到容器上/home/lijingdong/jira/atlassian-jira-6.3.6-standalone/atlassian-jira/WEB-INF/lib/目录下替换同名文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker cp /Users/peanut/Documents/Data\ Study/atlassian-extras-2.2.2.jar containerID:/home/jira/atlassian-jira-6.3.6-standalone/atlassian-</div><div class="line">   jira/WEB-INF/lib</div></pre></td></tr></table></figure></p>
-<p>之后重启jira。<br>点击右上角齿轮形状的管理图标，选择“系统”，再选择“授权”，看到使用日期不到1个月，如下所示：<br><img src="/img/docker/docker6.png" alt=""><br><img src="/img/docker/docker7.png" alt=""><br>填写授权码，授权码参数范例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Description=JIRA: Commercial,</div><div class="line">CreationDate=你的安装日期，格式（yyyy-mm-dd）,</div><div class="line">jira.LicenseEdition=ENTERPRISE,</div><div class="line">Evaluation=false,</div><div class="line">jira.LicenseTypeName=COMMERCIAL,</div><div class="line">jira.active=true,</div><div class="line">licenseVersion=2,</div><div class="line">MaintenanceExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">Organisation=joiandjoin,</div><div class="line">SEN=你申请到的SEN注意没有前缀LID,</div><div class="line">ServerID=你申请到的ServerID,</div><div class="line">jira.NumberOfUsers=-1,</div><div class="line">LicenseID=LID你申请到的SEN，注意LID前缀不要丢掉,</div><div class="line">LicenseExpiryDate=你想设置的失效日期如：2099-12-31,</div><div class="line">PurchaseDate=你的安装日期，格式（yyyy-mm-dd）</div></pre></td></tr></table></figure></p>
-<p>破解完成:<br><img src="/img/docker/docker8.png" alt=""><br>18.docker容器跨服务器迁移：<br>    有<a href="http://www.jb51.net/article/104529.htm" target="_blank" rel="external">两种方法</a>，我们使用save方式:<br>备份：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  docker save centos6/jira:2.0 &gt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>使用scp命令将文件拷贝到远程服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp /Users/peanut/Documents/Data\ Study/centos6_jira.tar user@serverIP:/home/user</div></pre></td></tr></table></figure></p>
-<p>恢复：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker load &lt;centos6_jira.tar</div></pre></td></tr></table></figure></p>
-<p>查看恢复的镜像：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jira</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/14/docker下centos6.9镜像安装jira及破解完整操作记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-丑奴儿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/丑奴儿/">丑奴儿·书博山道中壁</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/31/丑奴儿/" class="archive-article-date">
-  	<time datetime="2017-03-31T09:02:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font face="手札体-简">少年不识愁滋味，<br>爱上层楼。<br>爱上层楼，<br>为赋新词强说愁。<br>而今识尽愁滋味，<br>欲说还休。<br>欲说还休，<br>却道天凉好个秋。<br></font>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/think/" class="article-tag-list-link color1">think</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/丑奴儿/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-西洲曲" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/西洲曲/">西洲曲</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/31/西洲曲/" class="archive-article-date">
-  	<time datetime="2017-03-31T09:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font face="手札体-简">忆梅下西洲，折梅寄江北。<br>单衫杏子红，双鬓鸦雏色。<br>西洲在何处？两桨桥头渡。<br>日暮伯劳飞，风吹乌臼树。<br>树下即门前，门中露翠钿。<br>开门郎不至，出门采红莲。<br>采莲南塘秋，莲花过人头。<br>低头弄莲子，莲子清如水。<br>置莲怀袖中，莲心彻底红。<br>忆郎郎不至，仰首望飞鸿。<br>鸿飞满西洲，望郎上青楼。<br>楼高望不见，尽日栏杆头。<br>栏杆十二曲，垂手明如玉。<br>卷帘天自高，海水摇空绿。<br>海水梦悠悠，君愁我亦愁。<br>南风知我意，吹梦到西洲。<br></font>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/think/" class="article-tag-list-link color1">think</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/西洲曲/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-git个人博客使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/git个人博客使用/">git个人博客使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/git个人博客使用/" class="archive-article-date">
-  	<time datetime="2017-03-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><blockquote>
-<ul>
-<li>在source文件夹相应分类目录下写.md文件</li>
-<li>在每个分类目录下将索引按格式要求写入index.md文件</li>
-<li>根目录下执行命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g -d</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h3><p><a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="external">参考链接</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: *******</div><div class="line">---</div></pre></td></tr></table></figure></p>
-<p>抬头部分还支持的其他参数：<br><img src="/img/front-matter.png" alt=""></p>
-<p><font color="#ff0000">markdown支持html语法</font><br>加颜色（类似于html的语法）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#ff0000</span>&gt;</span>内容部分<span class="tag">&lt;/<span class="name">font</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>修改字体：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"手札体-简"</span>&gt;</span>内容部分</div><div class="line"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>添加图片：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">![](/img/airflow/run.png)</div><div class="line">这里的根路径是指source文件夹</div></pre></td></tr></table></figure></p>
-<p>添加超链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[文字](http://********)</div><div class="line">例：</div><div class="line">[CSS参考手册](http://www.w3school.com.cn/cssref/css_selectors.asp)</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/git个人博客使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1316,6 +1243,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
             
             <div class="clearfix"></div>
