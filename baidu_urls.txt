@@ -3,3 +3,13 @@ https://peanut7379.github.io/2018/10/15/String,StringBuilder,StringBuffer区别/
 https://peanut7379.github.io/2018/10/15/多线程知识总结/
 https://peanut7379.github.io/2018/10/14/进程和线程区别/
 https://peanut7379.github.io/2018/10/14/Java类加载及初始化顺序/
+https://peanut7379.github.io/2018/10/14/Java中常用参数值/
+https://peanut7379.github.io/2018/10/14/JAVA基本类型与封装类型的区别/
+https://peanut7379.github.io/2018/10/13/java反射/
+https://peanut7379.github.io/2018/10/04/141. Linked List Cycle/
+https://peanut7379.github.io/2018/10/04/389. Find the Difference/
+https://peanut7379.github.io/2018/10/04/438. Find All Anagrams in a String/
+https://peanut7379.github.io/2018/03/06/107. Binary Tree Level Order Traversal II/
+https://peanut7379.github.io/2018/03/06/Java集合嵌套/
+https://peanut7379.github.io/2017/06/28/airflow前端到后台调用逻辑分析/
+https://peanut7379.github.io/2017/05/29/shell常用命令笔记/
