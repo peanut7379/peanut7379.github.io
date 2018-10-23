@@ -959,7 +959,7 @@
 <h2 id="之后启动shadowsocks"><a href="#之后启动shadowsocks" class="headerlink" title="之后启动shadowsocks"></a>之后启动shadowsocks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssserver -c /etc/shadowsocks.json -d start</div></pre></td></tr></table></figure>
 <p>可以使用netstat -lnp查看对应端口有没有开始监听，如图<br><img src="/img/shadowsocks.png" alt=""><br>服务器端就结束了，之后在客户端安装shadowsocks配置好服务器即可。</p>
 <hr>
-<p>2018年10月23日更新：<br>之前使用的加密方式被探测到的风险增加，大量使用会导致封禁，需更换更安全的AEAD加密方式：<br><img src="/img/加密方式对比.png" alt=""><br>通过之前方式安装的shadowsocks版本不支持最新的AEAD加密方式，新的server端安装方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</div><div class="line">chmod +x shadowsocks-all.sh</div><div class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</div></pre></td></tr></table></figure></p>
+<p><font color="ff0000" size="4">2018年10月23日更新：</font><br>之前使用的加密方式被探测到的风险增加，大量使用会导致封禁，需更换更安全的AEAD加密方式：<br><img src="/img/加密方式对比.png" alt=""><br>通过之前方式安装的shadowsocks版本不支持最新的AEAD加密方式，新的server端安装方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</div><div class="line">chmod +x shadowsocks-all.sh</div><div class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</div></pre></td></tr></table></figure></p>
 <p>如系统未安装wget，先安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS：</div><div class="line">yum -y install wget</div><div class="line">Ubuntu/Debian：</div><div class="line">apt-get -y install wget</div></pre></td></tr></table></figure></p>
 <p>然后按照提示安装即可：</p>
 <ol>
@@ -967,7 +967,7 @@
 <li>提示设置密码，自定义设置，回车：</li>
 <li>选择端口，建议大一些，例如20000，回车：</li>
 <li>选择加密方式，输入对应序号，建议选1/2/3，回车:<br><img src="/img/ss/ss4.png" alt=""></li>
-<li>之后按照提示安装完成记下红框内连接信息，下载客户端连接即可：<br><img src="/img/ss/ss5.png" alt=""><br><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">shadowsocks各平台客户端下载</a><br><a href="https://ssr.tools/428" target="_blank" rel="external">参考链接</a><br><a href="https://wiki.archlinux.org/index.php/Shadowsocks_(简体中文" target="_blank" rel="external">archlinux</a>#.E6.9C.8D.E5.8A.A1.E7.AB.AF)</li>
+<li>之后按照提示安装完成记下红框内连接信息，下载客户端连接即可：<br><img src="/img/ss/ss5.png" alt=""><br><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">shadowsocks各平台客户端下载</a><br><a href="https://ssr.tools/428" target="_blank" rel="external">参考链接</a><br><a href="https://wiki.archlinux.org/index.php/Shadowsocks_&#40;简体中文&#41;" target="_blank" rel="external">archlinux shadowsocks wiki</a></li>
 </ol>
 
       
